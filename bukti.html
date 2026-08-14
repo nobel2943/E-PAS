@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bukti Pengajuan | E-PAS</title>
+
+<link rel="stylesheet" href="bukti.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<div class="header">
+
+<img src="logo.png" alt="Logo Bandara" class="logo">
+
+<h1>E-PAS</h1>
+
+<h3>Electronic Pass System</h3>
+
+<p>Bandar Udara Rahadi Oesman Ketapang</p>
+
+</div>
+
+<hr>
+
+<h2>Bukti Pengajuan PAS Bandara</h2>
+
+<table>
+
+<tr>
+
+<td><strong>Nomor Registrasi</strong></td>
+
+<td id="registrasi"></td>
+
+</tr>
+
+<tr>
+
+<td><strong>Nama Pemohon</strong></td>
+
+<td id="nama"></td>
+
+</tr>
+
+<tr>
+
+<td><strong>NIK</strong></td>
+
+<td id="nik"></td>
+
+</tr>
+
+<tr>
+
+<td><strong>Instansi</strong></td>
+
+<td id="instansi"></td>
+
+</tr>
+
+<tr>
+
+<td><strong>Jabatan</strong></td>
+
+<td id="jabatan"></td>
+
+</tr>
+
+<tr>
+
+<td><strong>Jenis PAS</strong></td>
+
+<td id="jenisPas"></td>
+
+</tr>
+
+<tr>
+
+<td><strong>Jenis Pengajuan</strong></td>
+
+<td id="jenisPengajuan"></td>
+
+</tr>
+
+<tr>
+
+<td><strong>Tanggal Pengajuan</strong></td>
+
+<td id="tanggal"></td>
+
+</tr>
+
+<tr>
+
+<td><strong>Status</strong></td>
+
+<td id="status"></td>
+
+</tr>
+
+</table>
+
+<div class="qr">
+
+<h3>QR Code Verifikasi</h3>
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=E-PAS"
+alt="QR Code">
+
+</div>
+
+<div class="catatan">
+
+<p>
+
+Bukti ini merupakan tanda bahwa permohonan PAS Bandara telah berhasil dikirim melalui sistem Electronic Pass System (E-PAS). Pemohon diwajibkan menunjukkan bukti ini apabila diminta oleh petugas Aviation Security (AVSEC).
+
+</p>
+
+</div>
+
+<div class="button">
+
+<button onclick="window.print()">
+
+🖨 Cetak Bukti
+
+</button>
+
+<button onclick="window.location.href='status.html'">
+
+← Kembali
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="bukti.js"></script>
+
+</body>
+
+</html>

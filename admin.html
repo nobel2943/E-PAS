@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard Admin | E-PAS</title>
+
+<link rel="stylesheet" href="admin.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+
+<img src="logo.png" alt="Logo Bandara">
+
+<h2>E-PAS</h2>
+
+<p>Electronic Pass System</p>
+
+</div>
+
+<ul>
+
+<li><a href="admin.html" class="active">Dashboard</a></li>
+
+<li><a href="pengajuan.html">Pengajuan PAS</a></li>
+
+<li><a href="perpanjangan.html">Perpanjangan PAS</a></li>
+
+<li><a href="status.html">Status Pengajuan</a></li>
+
+<li><a href="index.html">Logout</a></li>
+
+</ul>
+
+</div>
+
+<div class="main">
+
+<div class="header">
+
+<h1>Dashboard Admin</h1>
+
+<p>Bandar Udara Rahadi Oesman Ketapang</p>
+
+</div>
+
+<div class="card">
+
+<h2>Statistik Pengajuan</h2>
+
+<p>
+Total Pengajuan :
+<b id="totalPengajuan">0</b>
+</p>
+
+<p>
+Menunggu Verifikasi :
+<b id="totalMenunggu">0</b>
+</p>
+
+<p>
+Disetujui :
+<b id="totalDisetujui">0</b>
+</p>
+
+<p>
+Ditolak :
+<b id="totalDitolak">0</b>
+</p>
+
+</div>
+
+</div>
+
+<div class="tabel">
+
+<h2>Daftar Pengajuan PAS</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>No</th>
+
+<th>No Registrasi</th>
+
+<th>Nama</th>
+
+<th>Instansi</th>
+
+<th>Jenis PAS</th>
+
+<th>Status</th>
+
+<th>Aksi</th>
+
+</tr>
+
+</thead>
+
+<tbody id="dataPengajuan">
+
+</tbody>
+
+</table>
+
+<td>1</td>
+
+<td>Belum ada data</td>
+
+<td>-</td>
+
+<td>-</td>
+
+<td>-</td>
+
+<td>-</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="aksi">
+
+<h2>Verifikasi Pengajuan</h2>
+
+<button class="btn-detail" onclick="detailPengajuan()">
+
+Lihat Detail
+
+</button>
+
+<button class="btn-setuju" onclick="setujuiPengajuan()">
+
+Setujui
+
+</button>
+
+<button class="btn-tolak" onclick="tolakPengajuan()">
+
+Tolak
+
+</button>
+
+</div>
+
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+
+</html>
