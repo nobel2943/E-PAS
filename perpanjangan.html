@@ -83,21 +83,45 @@
 
 </select>
 
-<label>Upload PAS Lama</label>
-<input type="file" id="pasLama">
+<form id="formPerpanjangan">
 
-<label>Upload Surat Permohonan</label>
-<input type="file" id="surat">
+    <label>Nomor PAS Lama</label>
+    <input type="text" id="noPas" required>
 
-<label>Upload Foto 3x4</label>
-<input type="file" id="foto">
+    <label>Nama Lengkap</label>
+    <input type="text" id="nama" required>
 
-<button type="submit" id="btnKirimPerpanjangan">
-    Ajukan Perpanjangan
-</button>
+    <label>Instansi</label>
+    <input type="text" id="instansi" required>
 
-<!-- PESAN SUKSES / GAGAL -->
-<div id="pesanStatusPerpanjangan"></div>
+    <label>NIK</label>
+    <input type="text" id="nik" required>
+
+    <label>Jenis PAS</label>
+    <select id="jenisPas" required>
+        <option value="">-- Pilih Jenis PAS --</option>
+        <option value="PAS Tetap">PAS Tetap</option>
+        <option value="PAS Sementara">PAS Sementara</option>
+    </select>
+
+    <label>Tanggal Masa Berlaku Berakhir</label>
+    <input type="date" id="expired" required>
+
+    <label>Upload PAS Lama</label>
+    <input type="file" id="pasLama" required>
+
+    <label>Upload Surat Permohonan</label>
+    <input type="file" id="surat" required>
+
+    <label>Upload Foto 3x4</label>
+    <input type="file" id="foto" required>
+
+    <button type="submit" id="btnKirim">
+        Ajukan Perpanjangan
+    </button>
+
+    <!-- PESAN SUKSES / GAGAL -->
+    <div id="pesanStatus"></div>
 
 </form>
 
