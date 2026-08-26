@@ -2,7 +2,7 @@
 // KONFIGURASI SUPABASE
 // ================================
 
-const SUPABASE_URL = "https://cucyzdqexcspjlymryi.supabase.co";
+const SUPABASE_URL = "https://cucyzdqexcspjljymryi.supabase.co";
 
 const SUPABASE_KEY = "sb_publishable_e5b12jPjqKsA8NN_rvb_kg_8NHA1okq";
 
@@ -10,6 +10,20 @@ const supabaseClient = supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
+async function testKoneksi() {
+    try {
+        const { error } = await supabaseClient
+            .from("pengajuan_pas")
+            .select("*")
+            .limit(1);
+
+        console.log("Tes koneksi:", error || "BERHASIL TERHUBUNG");
+    } catch (err) {
+        console.error("SUPABASE TIDAK TERHUBUNG:", err);
+    }
+}
+
+testKoneksi();
 
 
 // ================================
