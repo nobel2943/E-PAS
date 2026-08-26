@@ -13,146 +13,223 @@ const supabaseClient = supabase.createClient(
 
 
 // ================================
-// FORM PENGAJUAN
+// JALANKAN SETELAH HALAMAN TERBUKA
 // ================================
 
-const form = document.getElementById("formPengajuan");
-const pesanStatus = document.getElementById("pesanStatus");
-const btnKirim = document.getElementById("btnKirim");
+document.addEventListener("DOMContentLoaded", function () {
 
-form.addEventListener("submit", async function (e) {
+    // Ambil elemen form
+    const form = document.getElementById("formPengajuan");
+    const pesanStatus = document.getElementById("pesanStatus");
+    const btnKirim = document.getElementById("btnKirim");
 
-    e.preventDefault();
-
-    console.log("Tombol kirim berhasil ditekan");
-
-    pesanStatus.innerHTML = `
-        <p style="color:blue; font-weight:bold;">
-            Sedang mengirim pengajuan...
-        </p>
-    `;
-
-    btnKirim.disabled = true;
-    btnKirim.innerText = "Mengirim...";
-
-    try {
-
-        // Ambil data form
-        const nama = document.getElementById("nama").value;
-        const nik = document.getElementById("nik").value;
-        const instansi = document.getElementById("instansi").value;
-        const jabatan = document.getElementById("jabatan").value;
-        const no_hp = document.getElementById("no_hp").value;
-        const email = document.getElementById("email").value;
-
-        const jenis_pengajuan =
-            document.getElementById("jenis_pengajuan").value;
-
-        const keperluan =
-            document.getElementById("keperluan").value;
+    // Cek apakah elemen ditemukan
+    if (!form) {
+        console.error("Form Pengajuan tidak ditemukan!");
+        return;
+    }
 
 
-        // Nomor pengajuan
-        const nomorPengajuan =
-            "PAS-" + Date.now();
+    // ================================
+    // KETIKA FORM DIKIRIM
+    // ================================
+
+    form.addEventListener("submit", async function (e) {
+
+        e.preventDefault();
+
+        console.log("Tombol Kirim Pengajuan ditekan");
 
 
-        // ================================
-        // SIMPAN KE DATABASE
-        // ================================
+        // Pesan sedang mengirim
+        pesanStatus.innerHTML = `
+            <div style="
+                background:#e3f2fd;
+                color:#0d47a1;
+                padding:15px;
+                margin-top:20px;
+                border-radius:8px;
+                font-weight:bold;
+            ">
+                Sedang mengirim pengajuan...
+            </div>
+        `;
 
-        const { data, error } =
-            await supabaseClient
+
+        // Nonaktifkan tombol sementara
+        btnKirim.disabled = true;
+        btnKirim.innerText = "Mengirim...";
+
+
+        try {
+
+            // ================================
+            // AMBIL DATA DARI FORM
+            // ================================
+
+            const namaPemohon =
+                document.getElementById("nama_pemohon").value.trim();
+
+            const nik =
+                document.getElementById("nik").value.trim();
+
+            const instansi =
+                document.getElementById("instansi").value.trim();
+
+            const jabatan =
+                document.getElementById("jabatan").value.trim();
+
+            const noHp =
+                document.getElementById("no_hp").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const jenisPengajuan =
+                document.getElementById("jenis_pengajuan").value;
+
+            const keperluan =
+                document.getElementById("keperluan").value.trim();
+
+
+            // ================================
+            // BUAT NOMOR PENGAJUAN
+            // ================================
+
+            const nomorPengajuan =
+                "PAS-" + Date.now();
+
+
+            // ================================
+            // SIMPAN KE SUPABASE
+            // ================================
+
+            const { data, error } = await supabaseClient
                 .from("pengajuan_pas")
                 .insert([
                     {
                         nomor_pengajuan: nomorPengajuan,
-                        nama_pemohon: nama,
+                        nama_pemohon: namaPemohon,
                         nik: nik,
                         instansi: instansi,
                         jabatan: jabatan,
-                        no_hp: no_hp,
+                        no_hp: noHp,
                         email: email,
-                        jenis_pengajuan: jenis_pengajuan,
+                        jenis_pengajuan: jenisPengajuan,
                         keperluan: keperluan,
-                        tanggal_pengajuan:
-                            new Date().toISOString().split("T")[0],
+                        tanggal_pengajuan: new Date()
+                            .toISOString()
+                            .split("T")[0],
                         status: "Menunggu"
                     }
                 ])
                 .select();
 
 
-        if (error) {
-            throw error;
+            // Jika ada error dari Supabase
+            if (error) {
+                throw error;
+            }
+
+
+            // ================================
+            // PENGAJUAN BERHASIL
+            // ================================
+
+            console.log("Pengajuan berhasil:", data);
+
+
+            // Simpan nomor pengajuan
+            localStorage.setItem(
+                "nomorPengajuan",
+                nomorPengajuan
+            );
+
+
+            // Tampilkan pesan berhasil
+            pesanStatus.innerHTML = `
+                <div style="
+                    background:#d4edda;
+                    color:#155724;
+                    padding:18px;
+                    margin-top:20px;
+                    border-radius:8px;
+                    font-weight:bold;
+                    line-height:1.7;
+                ">
+                    ✓ Pengajuan PAS berhasil dikirim!
+
+                    <br><br>
+
+                    Nomor Pengajuan Anda:
+                    <br>
+
+                    <span style="
+                        font-size:18px;
+                    ">
+                        ${nomorPengajuan}
+                    </span>
+
+                    <br><br>
+
+                    Silakan simpan nomor pengajuan ini
+                    untuk mengecek status pengajuan.
+                </div>
+            `;
+
+
+            // Reset form
+            form.reset();
+
+
+            // Ubah tombol
+            btnKirim.innerText =
+                "Pengajuan Berhasil Dikirim";
+
+
+            // Aktifkan kembali tombol setelah beberapa saat
+            setTimeout(function () {
+
+                btnKirim.disabled = false;
+                btnKirim.innerText = "Kirim Pengajuan";
+
+            }, 3000);
+
+
+        } catch (error) {
+
+            console.error("ERROR PENGAJUAN:", error);
+
+
+            // ================================
+            // PESAN GAGAL
+            // ================================
+
+            pesanStatus.innerHTML = `
+                <div style="
+                    background:#f8d7da;
+                    color:#721c24;
+                    padding:15px;
+                    margin-top:20px;
+                    border-radius:8px;
+                    font-weight:bold;
+                    line-height:1.6;
+                ">
+                    ✗ Pengajuan gagal dikirim.
+
+                    <br><br>
+
+                    ${error.message}
+                </div>
+            `;
+
+
+            // Aktifkan tombol kembali
+            btnKirim.disabled = false;
+            btnKirim.innerText =
+                "Kirim Pengajuan";
         }
 
-
-        // ================================
-        // BERHASIL
-        // ================================
-
-        console.log("BERHASIL!", data);
-
-        pesanStatus.innerHTML = `
-            <div style="
-                background:#d4edda;
-                color:#155724;
-                padding:15px;
-                margin-top:20px;
-                border-radius:8px;
-                font-weight:bold;
-            ">
-                ✓ Pengajuan PAS berhasil dikirim!
-
-                <br><br>
-
-                Nomor Pengajuan Anda:
-                <br>
-                ${nomorPengajuan}
-
-                <br><br>
-
-                Silakan simpan nomor pengajuan ini
-                untuk mengecek status pengajuan.
-            </div>
-        `;
-
-        localStorage.setItem(
-            "nomorPengajuan",
-            nomorPengajuan
-        );
-
-        form.reset();
-
-        btnKirim.innerText =
-            "Pengajuan Berhasil Dikirim";
-
-    } catch (error) {
-
-        console.error("ERROR:", error);
-
-        pesanStatus.innerHTML = `
-            <div style="
-                background:#f8d7da;
-                color:#721c24;
-                padding:15px;
-                margin-top:20px;
-                border-radius:8px;
-                font-weight:bold;
-            ">
-                ✗ Pengajuan gagal dikirim.
-
-                <br><br>
-
-                Error:
-                ${error.message}
-            </div>
-        `;
-
-        btnKirim.disabled = false;
-        btnKirim.innerText =
-            "Kirim Pengajuan";
-    }
+    });
 
 });
