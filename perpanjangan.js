@@ -1,160 +1,309 @@
+      ```javascript
 /* ===========================================
    PERPANJANGAN.JS
    E-PAS BANDAR UDARA
 =========================================== */
 
+
+// ==========================================
+// KONFIGURASI SUPABASE
+// ==========================================
+
+const SUPABASE_URL =
+    "https://cucyzdqexcspjlymryi.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_e5b12jPjqKsA8NN_rvb_kg_8NHA1okq";
+
+const supabaseClient =
+    supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+// ==========================================
+// JALANKAN SETELAH HALAMAN SIAP
+// ==========================================
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    const form = document.getElementById("formPerpanjangan");
-    const pesanStatus = document.getElementById("pesanStatus");
-    const btnKirim = document.getElementById("btnKirim");
+    const form =
+        document.getElementById("formPerpanjangan");
 
-    // Cek apakah form ditemukan
+    const pesanStatus =
+        document.getElementById("pesanStatus");
+
+    const btnKirim =
+        document.getElementById("btnKirim");
+
+
+    // ==========================================
+    // CEK APAKAH FORM ADA
+    // ==========================================
+
     if (!form) {
-        console.error("Form perpanjangan tidak ditemukan!");
+        console.error(
+            "Form perpanjangan tidak ditemukan!"
+        );
         return;
     }
 
-    form.addEventListener("submit", function (e) {
 
-        e.preventDefault();
+    // ==========================================
+    // SAAT FORM DIKIRIM
+    // ==========================================
 
-        // Ubah tombol saat sedang mengirim
-        btnKirim.disabled = true;
-        btnKirim.innerText = "Sedang Mengirim...";
+    form.addEventListener(
+        "submit",
+        async function (e) {
 
-        // Buat nomor pengajuan
-        const nomorPengajuan =
-            "PRP-" +
-            Date.now();
-
-        // Ambil data form
-        const data = {
-
-            nomorPengajuan: nomorPengajuan,
-
-            noPas:
-                document.getElementById("noPas").value,
-
-            nama:
-                document.getElementById("nama").value,
-
-            instansi:
-                document.getElementById("instansi").value,
-
-            nik:
-                document.getElementById("nik").value,
-
-            jenisPas:
-                document.getElementById("jenisPas").value,
-
-            expired:
-                document.getElementById("expired").value,
-
-            jenisPengajuan:
-                "Perpanjangan PAS",
-
-            status:
-                "Menunggu",
-
-            tanggalPengajuan:
-                new Date().toLocaleDateString("id-ID")
-
-        };
-
-        try {
-
-            // Ambil data lama
-            let daftarPAS =
-                JSON.parse(
-                    localStorage.getItem("daftarPAS")
-                ) || [];
+            e.preventDefault();
 
 
-            // Tambahkan data baru
-            daftarPAS.push(data);
+            // Ubah tombol
+            if (btnKirim) {
+
+                btnKirim.disabled = true;
+                btnKirim.innerText =
+                    "Sedang Mengirim...";
+
+            }
 
 
-            // Simpan data
-            localStorage.setItem(
-                "daftarPAS",
-                JSON.stringify(daftarPAS)
-            );
+            // Pesan proses
+            if (pesanStatus) {
+
+                pesanStatus.innerHTML = `
+                    <p style="
+                        color:blue;
+                        font-weight:bold;
+                        margin-top:20px;
+                    ">
+                        Sedang mengirim perpanjangan PAS...
+                    </p>
+                `;
+
+            }
 
 
-            // Simpan nomor pengajuan terakhir
-            localStorage.setItem(
-                "nomorPengajuan",
-                nomorPengajuan
-            );
+            try {
 
 
-            // =========================
-            // TAMPILKAN PESAN SUKSES
-            // =========================
+                // ==========================================
+                // BUAT NOMOR PENGAJUAN
+                // ==========================================
 
-            pesanStatus.innerHTML = `
-                <div style="
-                    margin-top:20px;
-                    padding:15px;
-                    background:#d4edda;
-                    color:#155724;
-                    border-radius:8px;
-                    text-align:center;
-                    font-weight:bold;
-                ">
-                    ✓ PERPANJANGAN PAS BERHASIL DIKIRIM!
-                    <br><br>
-                    Nomor Pengajuan Anda:
-                    <br>
-                    <span style="font-size:18px;">
-                        ${nomorPengajuan}
-                    </span>
-                    <br><br>
-                    Data berhasil disimpan.
-                    Anda akan diarahkan ke halaman status...
-                </div>
-            `;
+                const nomorPengajuan =
+                    "PRP-" + Date.now();
 
 
-            // Reset form
-            form.reset();
+                // ==========================================
+                // AMBIL DATA FORM
+                // ==========================================
+
+                const noPas =
+                    document.getElementById("noPas").value;
+
+                const nama =
+                    document.getElementById("nama").value;
+
+                const instansi =
+                    document.getElementById("instansi").value;
+
+                const nik =
+                    document.getElementById("nik").value;
+
+                const jenisPas =
+                    document.getElementById("jenisPas").value;
+
+                const expired =
+                    document.getElementById("expired").value;
 
 
-            // Tunggu 4 detik agar pesan terlihat
-            setTimeout(function () {
+                // ==========================================
+                // SIMPAN KE SUPABASE
+                // ==========================================
 
-                window.location.href =
-                    "status.html";
+                const { data, error } =
+                    await supabaseClient
+                        .from("pengajuan_pas")
+                        .insert([
+                            {
 
-            }, 4000);
+                                nomor_pengajuan:
+                                    nomorPengajuan,
+
+                                nama_pemohon:
+                                    nama,
+
+                                nik:
+                                    nik,
+
+                                instansi:
+                                    instansi,
+
+                                jenis_pengajuan:
+                                    "Perpanjangan PAS",
+
+                                jenis_pas:
+                                    jenisPas,
+
+                                no_pas:
+                                    noPas,
+
+                                tanggal_berakhir:
+                                    expired,
+
+                                tanggal_pengajuan:
+                                    new Date()
+                                        .toISOString()
+                                        .split("T")[0],
+
+                                status:
+                                    "Menunggu"
+
+                            }
+                        ])
+                        .select();
 
 
-        } catch (error) {
+                // Jika ada error
+                if (error) {
 
-            console.error(error);
+                    throw error;
 
-            pesanStatus.innerHTML = `
-                <div style="
-                    margin-top:20px;
-                    padding:15px;
-                    background:#f8d7da;
-                    color:#721c24;
-                    border-radius:8px;
-                    text-align:center;
-                    font-weight:bold;
-                ">
-                    ✗ PERPANJANGAN GAGAL DIKIRIM!
-                    <br><br>
-                    ${error.message}
-                </div>
-            `;
+                }
 
-            btnKirim.disabled = false;
-            btnKirim.innerText =
-                "Ajukan Perpanjangan";
+
+                console.log(
+                    "Perpanjangan berhasil:",
+                    data
+                );
+
+
+                // ==========================================
+                // SIMPAN NOMOR PENGAJUAN TERAKHIR
+                // ==========================================
+
+                localStorage.setItem(
+                    "nomorPengajuan",
+                    nomorPengajuan
+                );
+
+
+                // ==========================================
+                // TAMPILKAN PESAN BERHASIL
+                // ==========================================
+
+                if (pesanStatus) {
+
+                    pesanStatus.innerHTML = `
+                        <div style="
+                            margin-top:20px;
+                            padding:15px;
+                            background:#d4edda;
+                            color:#155724;
+                            border-radius:8px;
+                            text-align:center;
+                            font-weight:bold;
+                        ">
+                            ✓ PERPANJANGAN PAS BERHASIL DIKIRIM!
+
+                            <br><br>
+
+                            Nomor Pengajuan Anda:
+
+                            <br>
+
+                            <span style="
+                                font-size:18px;
+                            ">
+                                ${nomorPengajuan}
+                            </span>
+
+                            <br><br>
+
+                            Data berhasil disimpan.
+
+                            <br>
+
+                            Anda akan diarahkan
+                            ke halaman status...
+                        </div>
+                    `;
+
+                }
+
+
+                // Reset form
+                form.reset();
+
+
+                // ==========================================
+                // PINDAH KE HALAMAN STATUS
+                // ==========================================
+
+                setTimeout(function () {
+
+                    window.location.href =
+                        "status.html";
+
+                }, 4000);
+
+
+            } catch (error) {
+
+
+                console.error(
+                    "ERROR PERPANJANGAN:",
+                    error
+                );
+
+
+                // ==========================================
+                // PESAN GAGAL
+                // ==========================================
+
+                if (pesanStatus) {
+
+                    pesanStatus.innerHTML = `
+                        <div style="
+                            margin-top:20px;
+                            padding:15px;
+                            background:#f8d7da;
+                            color:#721c24;
+                            border-radius:8px;
+                            text-align:center;
+                            font-weight:bold;
+                        ">
+                            ✗ PERPANJANGAN GAGAL DIKIRIM!
+
+                            <br><br>
+
+                            ${error.message}
+                        </div>
+                    `;
+
+                }
+
+
+                // Aktifkan kembali tombol
+                if (btnKirim) {
+
+                    btnKirim.disabled = false;
+
+                    btnKirim.innerText =
+                        "Ajukan Perpanjangan";
+
+                }
+
+            }
+
         }
-
-    });
+    );
 
 });
+```
+
+            
