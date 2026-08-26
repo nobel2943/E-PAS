@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Perpanjangan PAS | E-PAS</title>
+
+<link rel="stylesheet" href="perpanjangan.css">
+
+</head>
+
+<header>
+
+<div class="container">
+
+<div class="logo">
+
+<img src="logo.png" alt="Logo RAOS" class="logo-img">
+
+<div class="judul">
+
+<h1>E-PAS</h1>
+
+<p>Electronic Pass System</p>
+
+<span>Bandar Udara Rahadi Oesman Ketapang</span>
+
+</div>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">Beranda</a></li>
+
+<li><a href="pengajuan.html">Pengajuan Baru</a></li>
+
+<li><a href="perpanjangan.html" class="active">Perpanjangan PAS</a></li>
+
+<li><a href="status.html">Status Pengajuan</a></li>
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<h2>Form Perpanjangan PAS</h2>
+
+
+<label>Nomor PAS Lama</label>
+
+<input type="text" id="noPas" required>
+
+<label>Nama Lengkap</label>
+
+<input type="text" id="nama" required>
+
+<label>Instansi / Perusahaan</label>
+
+<input type="text" id="instansi" required>
+
+<label>NIK / Nomor Identitas</label>
+
+<input type="text" id="nik" required>
+
+<label>Jenis PAS</label>
+
+<select id="jenisPas">
+
+<option value="Tahunan">PAS Tahunan</option>
+
+<option value="Bulanan">PAS Bulanan</option>
+
+<option value="Harian">PAS Harian</option>
+
+</select>
+
+<label>Upload PAS Lama</label>
+<input type="file" id="pasLama">
+
+<label>Upload Surat Permohonan</label>
+<input type="file" id="surat">
+
+<label>Upload Foto 3x4</label>
+<input type="file" id="foto">
+
+<button type="submit" id="btnKirimPerpanjangan">
+    Ajukan Perpanjangan
+</button>
+
+<!-- PESAN SUKSES / GAGAL -->
+<div id="pesanStatusPerpanjangan"></div>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+    <p>© 2026 Electronic Pass System (E-PAS)</p>
+    <p>Bandar Udara Rahadi Oesman Ketapang</p>
+</footer>
+
+<script src="perpanjangan.js"></script>
+
+</body>
+</html>

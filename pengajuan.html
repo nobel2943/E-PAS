@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pengajuan PAS | E-PAS</title>
+
+    <link rel="stylesheet" href="pengajuan.css">
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+
+        <div class="logo">
+            <img src="logo.png" class="logo-img" alt="Logo">
+
+            <div class="judul">
+                <h1>E-PAS</h1>
+                <p>Electronic Pass System</p>
+                <span>Bandar Udara Rahadi Oesman Ketapang</span>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Beranda</a>
+                </li>
+
+                <li>
+                    <a href="status.html">Cek Status</a>
+                </li>
+
+                <li>
+                    <a href="persyaratan.html">Persyaratan</a>
+                </li>
+
+                <li>
+                    <a href="panduan.html">Panduan</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+
+<section class="pengajuan-section">
+
+    <div class="container">
+
+        <div class="form-box">
+
+            <h2>Form Pengajuan PAS</h2>
+
+            <p class="subtitle">
+                Silakan lengkapi data pemohon dengan benar.
+            </p>
+
+
+            <form id="formPengajuan">
+
+
+                <!-- NAMA PEMOHON -->
+                <div class="form-group">
+
+                    <label for="nama_pemohon">
+                        Nama Pemohon
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nama_pemohon"
+                        name="nama_pemohon"
+                        placeholder="Masukkan nama lengkap"
+                        required>
+
+                </div>
+
+
+                <!-- NIK -->
+                <div class="form-group">
+
+                    <label for="nik">
+                        NIK
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nik"
+                        name="nik"
+                        placeholder="Masukkan NIK"
+                        maxlength="16"
+                        required>
+
+                </div>
+
+
+                <!-- INSTANSI -->
+                <div class="form-group">
+
+                    <label for="instansi">
+                        Instansi / Perusahaan
+                    </label>
+
+                    <input
+                        type="text"
+                        id="instansi"
+                        name="instansi"
+                        placeholder="Masukkan nama instansi"
+                        required>
+
+                </div>
+
+
+                <!-- JABATAN -->
+                <div class="form-group">
+
+                    <label for="jabatan">
+                        Jabatan
+                    </label>
+
+                    <input
+                        type="text"
+                        id="jabatan"
+                        name="jabatan"
+                        placeholder="Masukkan jabatan"
+                        required>
+
+                </div>
+
+
+                <!-- NOMOR HP -->
+                <div class="form-group">
+
+                    <label for="no_hp">
+                        Nomor HP
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="no_hp"
+                        name="no_hp"
+                        placeholder="08xxxxxxxxxx"
+                        required>
+
+                </div>
+
+
+                <!-- EMAIL -->
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="contoh@email.com"
+                        required>
+
+                </div>
+
+
+                <!-- JENIS PENGAJUAN -->
+                <div class="form-group">
+
+                    <label for="jenis_pengajuan">
+                        Jenis Pengajuan
+                    </label>
+
+                    <select
+                        id="jenis_pengajuan"
+                        name="jenis_pengajuan"
+                        required>
+
+                        <option value="">
+                            -- Pilih Jenis Pengajuan --
+                        </option>
+
+                        <option value="PAS Baru">
+                            PAS Baru
+                        </option>
+
+                        <option value="Perpanjangan PAS">
+                            Perpanjangan PAS
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- KEPERLUAN -->
+                <div class="form-group">
+
+                    <label for="keperluan">
+                        Keperluan
+                    </label>
+
+                    <textarea
+                        id="keperluan"
+                        name="keperluan"
+                        rows="4"
+                        placeholder="Jelaskan keperluan pengajuan PAS"
+                        required></textarea>
+
+                </div>
+
+
+                <!-- SKCK -->
+                <div class="form-group">
+
+                    <label for="skck">
+                        Upload SKCK
+                    </label>
+
+                    <input
+                        type="file"
+                        id="skck"
+                        name="skck"
+                        accept=".pdf,.jpg,.jpeg,.png">
+
+                    <small>
+                        Format PDF/JPG/PNG
+                    </small>
+
+                </div>
+
+
+                <!-- KTP -->
+                <div class="form-group">
+
+                    <label for="ktp">
+                        Upload KTP
+                    </label>
+
+                    <input
+                        type="file"
+                        id="ktp"
+                        name="ktp"
+                        accept=".pdf,.jpg,.jpeg,.png"
+                        required>
+
+                    <small>
+                        Format PDF/JPG/PNG
+                    </small>
+
+                </div>
+
+
+                <!-- FOTO -->
+                <div class="form-group">
+
+                    <label for="foto">
+                        Upload Pas Foto
+                    </label>
+
+                    <input
+                        type="file"
+                        id="foto"
+                        name="foto"
+                        accept=".jpg,.jpeg,.png"
+                        required>
+
+                    <small>
+                        Format JPG/PNG
+                    </small>
+
+                </div>
+
+
+                <!-- TOMBOL -->
+                <div class="button-group">
+
+                    <a
+                        href="index.html"
+                        class="btn-kembali">
+                        Kembali
+                    </a>
+                  <form id="formPengajuan">
+
+    <!-- semua input -->
+
+    <button type="submit" id="btnKirim">
+        Kirim Pengajuan
+    </button>
+
+    <div id="pesanStatus"></div>
+
+                  </form>
+    <h3>✅ Pengajuan Berhasil!</h3>
+    <p>Data pengajuan PAS Anda telah berhasil dikirim.</p>
+    <p>Silakan menunggu proses verifikasi dari Admin E-PAS.</p>
+</>
+
+                </div>
+
+
+                <!-- PESAN -->
+                <div id="pesan"></div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 Electronic Pass System (E-PAS)
+    </p>
+
+    <p>
+        Bandar Udara Rahadi Oesman Ketapang
+    </p>
+
+</footer>
+
+
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- JAVASCRIPT PENGAJUAN -->
+<script src="pengajuan.js"></script>
+
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="pengajuan.js"></script>
+
+</body>
+</html>
