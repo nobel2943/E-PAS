@@ -1,4 +1,3 @@
-   ```javascript
 /* ===========================================
    PERPANJANGAN.JS
    E-PAS BANDAR UDARA
@@ -10,173 +9,110 @@ document.addEventListener("DOMContentLoaded", function () {
     const pesanStatus = document.getElementById("pesanStatus");
     const btnKirim = document.getElementById("btnKirim");
 
-    // Pastikan semua elemen ditemukan
+    // Cek apakah form ditemukan
     if (!form) {
-        console.error("ERROR: formPerpanjangan tidak ditemukan!");
+        console.error("Form perpanjangan tidak ditemukan!");
         return;
     }
-
-    if (!pesanStatus) {
-        console.error("ERROR: pesanStatus tidak ditemukan!");
-        return;
-    }
-
-    if (!btnKirim) {
-        console.error("ERROR: btnKirim tidak ditemukan!");
-        return;
-    }
-
 
     form.addEventListener("submit", function (e) {
 
         e.preventDefault();
 
-        console.log("Tombol perpanjangan berhasil ditekan");
-
-
-        // ==========================================
-        // TOMBOL SEDANG DIPROSES
-        // ==========================================
-
+        // Ubah tombol saat sedang mengirim
         btnKirim.disabled = true;
         btnKirim.innerText = "Sedang Mengirim...";
 
+        // Buat nomor pengajuan
+        const nomorPengajuan =
+            "PRP-" +
+            Date.now();
+
+        // Ambil data form
+        const data = {
+
+            nomorPengajuan: nomorPengajuan,
+
+            noPas:
+                document.getElementById("noPas").value,
+
+            nama:
+                document.getElementById("nama").value,
+
+            instansi:
+                document.getElementById("instansi").value,
+
+            nik:
+                document.getElementById("nik").value,
+
+            jenisPas:
+                document.getElementById("jenisPas").value,
+
+            expired:
+                document.getElementById("expired").value,
+
+            jenisPengajuan:
+                "Perpanjangan PAS",
+
+            status:
+                "Menunggu",
+
+            tanggalPengajuan:
+                new Date().toLocaleDateString("id-ID")
+
+        };
 
         try {
 
-            // ==========================================
-            // BUAT NOMOR PENGAJUAN
-            // ==========================================
-
-            const nomorPengajuan =
-                "PRP-" + Date.now();
-
-
-            // ==========================================
-            // AMBIL DATA FORM
-            // ==========================================
-
-            const noPas =
-                document.getElementById("noPas").value;
-
-            const nama =
-                document.getElementById("nama").value;
-
-            const instansi =
-                document.getElementById("instansi").value;
-
-            const nik =
-                document.getElementById("nik").value;
-
-            const jenisPas =
-                document.getElementById("jenisPas").value;
-
-            const expired =
-                document.getElementById("expired").value;
-
-
-            // ==========================================
-            // DATA PERPANJANGAN
-            // ==========================================
-
-            const data = {
-
-                nomorPengajuan: nomorPengajuan,
-
-                noPas: noPas,
-
-                nama: nama,
-
-                instansi: instansi,
-
-                nik: nik,
-
-                jenisPas: jenisPas,
-
-                expired: expired,
-
-                jenisPengajuan:
-                    "Perpanjangan PAS",
-
-                status:
-                    "Menunggu",
-
-                tanggalPengajuan:
-                    new Date()
-                        .toLocaleDateString("id-ID")
-
-            };
-
-
-            // ==========================================
-            // AMBIL DATA LAMA
-            // ==========================================
-
+            // Ambil data lama
             let daftarPAS =
                 JSON.parse(
                     localStorage.getItem("daftarPAS")
                 ) || [];
 
 
-            // ==========================================
-            // TAMBAHKAN DATA BARU
-            // ==========================================
-
+            // Tambahkan data baru
             daftarPAS.push(data);
 
 
-            // ==========================================
-            // SIMPAN KE LOCALSTORAGE
-            // ==========================================
-
+            // Simpan data
             localStorage.setItem(
                 "daftarPAS",
                 JSON.stringify(daftarPAS)
             );
 
 
-            // Simpan nomor terakhir
+            // Simpan nomor pengajuan terakhir
             localStorage.setItem(
                 "nomorPengajuan",
                 nomorPengajuan
             );
 
 
-            console.log(
-                "PERPANJANGAN BERHASIL:",
-                data
-            );
-
-
-            // ==========================================
+            // =========================
             // TAMPILKAN PESAN SUKSES
-            // ==========================================
+            // =========================
 
             pesanStatus.innerHTML = `
                 <div style="
-                    margin-top: 20px;
-                    padding: 15px;
-                    background: #d4edda;
-                    color: #155724;
-                    border-radius: 8px;
-                    text-align: center;
-                    font-weight: bold;
+                    margin-top:20px;
+                    padding:15px;
+                    background:#d4edda;
+                    color:#155724;
+                    border-radius:8px;
+                    text-align:center;
+                    font-weight:bold;
                 ">
                     ✓ PERPANJANGAN PAS BERHASIL DIKIRIM!
-
                     <br><br>
-
                     Nomor Pengajuan Anda:
-
                     <br>
-
                     <span style="font-size:18px;">
                         ${nomorPengajuan}
                     </span>
-
                     <br><br>
-
                     Data berhasil disimpan.
+                    Anda akan diarahkan ke halaman status...
                 </div>
             `;
 
@@ -185,12 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
             form.reset();
 
 
-            // Ubah tulisan tombol
-            btnKirim.innerText =
-                "Perpanjangan Berhasil Dikirim";
-
-
-            // Pindah setelah 4 detik
+            // Tunggu 4 detik agar pesan terlihat
             setTimeout(function () {
 
                 window.location.href =
@@ -201,40 +132,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } catch (error) {
 
-            console.error(
-                "ERROR PERPANJANGAN:",
-                error
-            );
-
+            console.error(error);
 
             pesanStatus.innerHTML = `
                 <div style="
-                    margin-top: 20px;
-                    padding: 15px;
-                    background: #f8d7da;
-                    color: #721c24;
-                    border-radius: 8px;
-                    text-align: center;
-                    font-weight: bold;
+                    margin-top:20px;
+                    padding:15px;
+                    background:#f8d7da;
+                    color:#721c24;
+                    border-radius:8px;
+                    text-align:center;
+                    font-weight:bold;
                 ">
                     ✗ PERPANJANGAN GAGAL DIKIRIM!
-
                     <br><br>
-
                     ${error.message}
                 </div>
             `;
 
-
             btnKirim.disabled = false;
             btnKirim.innerText =
                 "Ajukan Perpanjangan";
-
         }
 
     });
 
-});
-```
-
-                
+}); 
