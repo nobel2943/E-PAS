@@ -50,6 +50,6 @@ function tampilStatus(){
 
         `;
 
-    }); ini status js
+    }); 
 
 }
