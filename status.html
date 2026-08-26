@@ -1,138 +1,105 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Pengajuan | E-PAS</title>
 
-<title>Status Pengajuan | E-PAS</title>
-
-<link rel="stylesheet" href="status.css">
-
+    <link rel="stylesheet" href="status.css">
 </head>
 
 <body>
 
-<header>
+    <header>
+        <div class="container">
 
-<div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo RAOS" class="logo-img">
 
-<div class="logo">
+                <div class="judul">
+                    <h1>E-PAS</h1>
+                    <p>Electronic Pass System</p>
+                    <span>Bandar Udara Rahadi Oesman Ketapang</span>
+                </div>
+            </div>
 
-<img src="logo.png" alt="Logo RAOS" class="logo-img">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="pengajuan.html">Pengajuan PAS</a></li>
+                    <li><a href="perpanjangan.html">Perpanjangan PAS</a></li>
+                    <li><a href="status.html" class="active">Status Pengajuan</a></li>
+                </ul>
+            </nav>
 
-<div class="judul">
+        </div>
+    </header>
 
-<h1>E-PAS</h1>
+    <main>
 
-<p>Electronic Pass System</p>
+        <section class="status-box">
 
-<span>Bandar Udara Rahadi Oesman Ketapang</span>
+            <h2>Status Pengajuan PAS</h2>
 
-</div>
+            <p id="infoStatus">
+                Memuat data pengajuan...
+            </p>
 
-</div>
+            <table>
 
-<nav>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>No Registrasi</th>
+                        <th>Nama</th>
+                        <th>Instansi</th>
+                        <th>Jenis PAS</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
 
-<ul>
+                <tbody id="statusBody">
+                    <!-- Data akan ditampilkan oleh status.js -->
+                </tbody>
 
-<li><a href="index.html">Beranda</a></li>
+            </table>
 
-<li><a href="pengajuan.html">Pengajuan PAS</a></li>
+            <div class="button-group">
 
-<li><a href="perpanjangan.html">Perpanjangan PAS</a></li>
+                <a href="pengajuan.html" class="btn">
+                    Ajukan PAS Baru
+                </a>
 
-<li><a href="status.html" class="active">Status Pengajuan</a></li>
+                <a href="perpanjangan.html" class="btn">
+                    Perpanjang PAS
+                </a>
 
-</ul>
+                <a href="index.html" class="btn secondary">
+                    Kembali ke Beranda
+                </a>
 
-</nav>
+            </div>
 
-</div>
+        </section>
 
-</header>
+    </main>
 
-<main>
+    <footer>
+        <p>© 2026 Electronic Pass System (E-PAS)</p>
+        <p>Bandar Udara Rahadi Oesman Ketapang</p>
+    </footer>
 
-<section class="status-box">
 
-<h2>Status Pengajuan PAS</h2>
+    <!-- SUPABASE HARUS DIMUAT TERLEBIH DAHULU -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<table>
-
-<thead>
-
-<tr>
-
-<th>No</th>
-
-<th>No Registrasi</th>
-
-<th>Nama</th>
-
-<th>Instansi</th>
-
-<th>Jenis PAS</th>
-
-<th>Status</th>
-
-</tr>
-
-</thead>
-
-<tbody id="statusBody">
-
-</tbody>
-
-<tr>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-<div class="button-group">
-
-<a href="pengajuan.html" class="btn">
-
-Ajukan PAS Baru
-
-</a>
-
-<a href="index.html" class="btn secondary">
-
-Kembali ke Beranda
-
-</a>
-
-</div>
-
-</section>
-
-</main>
-
-<footer>
-
-<p>
-
-© 2026 Electronic Pass System (E-PAS)
-
-</p>
-
-<p>
-
-Bandar Udara Rahadi Oesman Ketapang
-
-</p>
-
-</footer>
-
-<script src="status.js"></script>
+    <!-- JAVASCRIPT STATUS -->
+    <script src="status.js"></script>
 
 </body>
+
 </html>
+```
