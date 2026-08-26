@@ -1,223 +1,55 @@
-```javascript
 /* ======================================
-   STATUS.JS - E-PAS
-   Menampilkan:
-   1. Pengajuan PAS Baru dari Supabase
-   2. Perpanjangan PAS dari localStorage
+   STATUS.JS
 ====================================== */
-
-
-// ======================================
-// KONFIGURASI SUPABASE
-// ======================================
-
-const SUPABASE_URL = "https://cucyzdqexcspjlymryi.supabase.co";
-
-const SUPABASE_KEY = "sb_publishable_e5b12jPjqKsA8NN_rvb_kg_8NHA1okq";
-
-const supabaseClient = supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-);
-
-
-// ======================================
-// JALANKAN SAAT HALAMAN DIBUKA
-// ======================================
 
 document.addEventListener("DOMContentLoaded", tampilStatus);
 
+function tampilStatus(){
 
-// ======================================
-// TAMPILKAN STATUS
-// ======================================
+    let daftarPAS = JSON.parse(localStorage.getItem("daftarPAS")) || [];
 
-async function tampilStatus() {
+    let tbody = document.getElementById("statusBody");
 
-    const tbody = document.getElementById("statusBody");
-    const infoStatus = document.getElementById("infoStatus");
+    if(!tbody) return;
 
-    if (!tbody) return;
+    tbody.innerHTML="";
 
-    tbody.innerHTML = "";
+    if(daftarPAS.length==0){
 
-    if (infoStatus) {
-        infoStatus.innerText = "Memuat data pengajuan...";
+        tbody.innerHTML=`
+        <tr>
+        <td colspan="7">
+        Belum ada data pengajuan.
+        </td>
+        </tr>
+        `;
+
+        return;
+
     }
 
+    daftarPAS.forEach(function(data,index){
 
-    try {
+        tbody.innerHTML += `
 
-        // ======================================
-        // AMBIL DATA PENGAJUAN BARU DARI SUPABASE
-        // ======================================
+        <tr>
 
-        const { data: pengajuanBaru, error } =
-            await supabaseClient
-                .from("pengajuan_pas")
-                .select("*")
-                .order("created_at", {
-                    ascending: false
-                });
+        <td>${index+1}</td>
 
+        <td>${data.registrasi}</td>
 
-        if (error) {
-            throw error;
-        }
+        <td>${data.nama}</td>
 
+        <td>${data.instansi}</td>
 
-        // ======================================
-        // AMBIL DATA PERPANJANGAN DARI LOCALSTORAGE
-        // ======================================
+        <td>${data.jenisPas}</td>
 
-        const daftarPAS =
-            JSON.parse(
-                localStorage.getItem("daftarPAS")
-            ) || [];
+        <td>${data.status}</td>
 
-
-        // ======================================
-        // JIKA TIDAK ADA DATA SAMA SEKALI
-        // ======================================
-
-        if (
-            pengajuanBaru.length === 0 &&
-            daftarPAS.length === 0
-        ) {
-
-            tbody.innerHTML = `
-                <tr>
-                    <td colspan="6">
-                        Belum ada data pengajuan.
-                    </td>
-                </tr>
-            `;
-
-            if (infoStatus) {
-                infoStatus.innerText = "";
-            }
-
-            return;
-        }
-
-
-        let nomor = 1;
-
-
-        // ======================================
-        // TAMPILKAN PENGAJUAN BARU
-        // ======================================
-
-        pengajuanBaru.forEach(function (data) {
-
-            tbody.innerHTML += `
-
-                <tr>
-
-                    <td>${nomor}</td>
-
-                    <td>
-                        ${data.nomor_pengajuan || "-"}
-                    </td>
-
-                    <td>
-                        ${data.nama_pemohon || "-"}
-                    </td>
-
-                    <td>
-                        ${data.instansi || "-"}
-                    </td>
-
-                    <td>
-                        ${data.jenis_pengajuan || "-"}
-                    </td>
-
-                    <td>
-                        <span class="status-menunggu">
-                            ${data.status || "Menunggu"}
-                        </span>
-                    </td>
-
-                </tr>
-
-            `;
-
-            nomor++;
-
-        });
-
-
-        // ======================================
-        // TAMPILKAN DATA PERPANJANGAN
-        // ======================================
-
-        daftarPAS.forEach(function (data) {
-
-            tbody.innerHTML += `
-
-                <tr>
-
-                    <td>${nomor}</td>
-
-                    <td>
-                        ${data.registrasi || "-"}
-                    </td>
-
-                    <td>
-                        ${data.nama || "-"}
-                    </td>
-
-                    <td>
-                        ${data.instansi || "-"}
-                    </td>
-
-                    <td>
-                        ${data.jenisPas || "Perpanjangan PAS"}
-                    </td>
-
-                    <td>
-                        <span class="status-menunggu">
-                            ${data.status || "Menunggu"}
-                        </span>
-                    </td>
-
-                </tr>
-
-            `;
-
-            nomor++;
-
-        });
-
-
-        if (infoStatus) {
-            infoStatus.innerText =
-                "Data pengajuan dan perpanjangan PAS berhasil dimuat.";
-        }
-
-
-    } catch (error) {
-
-        console.error("Gagal mengambil status:", error);
-
-        tbody.innerHTML = `
-
-            <tr>
-                <td colspan="6">
-                    Gagal memuat data pengajuan.
-                    <br>
-                    ${error.message}
-                </td>
-            </tr>
+        </tr>
 
         `;
 
-        if (infoStatus) {
-            infoStatus.innerText = "";
-        }
-
-    }
+    }); ini status js
 
 }
-```
-                       
