@@ -1,690 +1,1262 @@
-# style.css
-
-```css
 /* =========================================
-   E-PAS RAOS AIRPORT
+   E-PAS
+   ELECTRONIC PASS SYSTEM
+   BANDAR UDARA RAHADI OESMAN KETAPANG
    STYLE.CSS
-   TEMA BIRU
 ========================================= */
+
 
 /* =========================================
    RESET DASAR
 ========================================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
+
 
 /* =========================================
    WARNA UTAMA
 ========================================= */
 
-:root {
-    --biru-tua: #003b73;
-    --biru-utama: #0056a6;
-    --biru-terang: #0b78d1;
-    --biru-muda: #dceeff;
-    --biru-sangat-muda: #eef7ff;
-    --putih: #ffffff;
-    --kuning: #ffd166;
+:root{
+    --biru-utama:#003b73;
+    --biru-header:#004a8f;
+    --biru-terang:#0066cc;
+    --biru-hover:#0055a5;
+    --biru-muda:#eaf4ff;
+    --putih:#ffffff;
+    --abu:#555555;
 }
+
 
 /* =========================================
-   BODY / LATAR BELAKANG WEBSITE
+   BODY
+   LATAR BIRU DENGAN PESAWAT SAMAR
 ========================================= */
 
-html {
-    scroll-behavior: smooth;
+body{
+    min-height:100vh;
+    color:#333;
+
+    background:
+        linear-gradient(
+            rgba(234,244,255,0.94),
+            rgba(234,244,255,0.94)
+        ),
+        url("background.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
 }
 
-body {
-    background: var(--biru-muda);
-    color: #333;
-    min-height: 100vh;
-}
 
 /* =========================================
    CONTAINER
 ========================================= */
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
 }
+
 
 /* =========================================
-   HEADER BIRU
+   HEADER
 ========================================= */
 
-header {
-    background: linear-gradient(
-        135deg,
-        #003b73,
-        #0056a6,
-        #0b78d1
-    );
-    color: white;
-    padding: 15px 0;
-    box-shadow: 0 3px 10px rgba(0, 59, 115, 0.25);
+header{
+    width:100%;
+    background:
+        linear-gradient(
+            135deg,
+            #003b73,
+            #0066cc
+        );
+
+    color:white;
+    padding:14px 0;
+
+    box-shadow:
+        0 3px 12px
+        rgba(0,0,0,0.15);
 }
 
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+header .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
+
 
 /* =========================================
-   LOGO
+   LOGO DAN JUDUL
 ========================================= */
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
 }
 
-/* FILE LOGO JPG */
 
-.logo-jpg,
-.logo-img {
-    width: 75px;
-    height: 75px;
-    max-width: 75px;
-    max-height: 75px;
-    object-fit: contain;
-    display: block;
-    flex-shrink: 0;
+/* LOGO JPG */
+
+.logo-img,
+.logo-jpg{
+    width:72px !important;
+    height:72px !important;
+
+    max-width:72px !important;
+    max-height:72px !important;
+
+    object-fit:contain;
+
+    display:block;
+
+    flex-shrink:0;
 }
+
+
+/* BAGIAN JUDUL */
+
+.judul{
+    display:flex;
+    flex-direction:column;
+}
+
+
+.judul h1{
+    color:white;
+    font-size:28px;
+    margin:0;
+}
+
+
+.judul p{
+    color:#dbeeff;
+    font-size:15px;
+    margin:3px 0;
+}
+
+
+.judul span{
+    color:white;
+    font-size:13px;
+    margin-top:2px;
+}
+
 
 /* =========================================
-   JUDUL E-PAS
+   NAVIGATION
 ========================================= */
 
-.judul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+nav ul{
+    display:flex;
+    align-items:center;
+    list-style:none;
+    gap:8px;
 }
 
-.judul h1 {
-    margin: 0;
-    color: white;
-    font-size: 32px;
-    line-height: 1.2;
+
+nav ul li{
+    margin:0;
 }
 
-.judul p {
-    margin: 3px 0;
-    color: #e1f1ff;
-    font-size: 16px;
+
+nav ul li a{
+    display:block;
+
+    color:white !important;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    padding:9px 12px;
+
+    border-radius:6px;
+
+    transition:0.3s;
 }
 
-.judul span {
-    margin-top: 2px;
-    color: white;
-    font-size: 13px;
+
+nav ul li a:visited{
+    color:white !important;
 }
 
-/* =========================================
-   MENU NAVIGASI
-========================================= */
 
-nav ul {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 5px;
+nav ul li a:hover{
+    background:
+        rgba(255,255,255,0.18);
+
+    color:white !important;
 }
 
-nav ul li {
-    list-style: none;
-}
-
-nav ul li a,
-nav ul li a:visited {
-    display: block;
-    text-decoration: none;
-    color: white !important;
-    font-weight: bold;
-    padding: 10px 12px;
-    border-radius: 6px;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    background: rgba(255, 255, 255, 0.18);
-    color: white !important;
-}
 
 /* MENU AKTIF */
 
 nav ul li a.active,
-nav ul li a.active:visited {
-    background: white;
-    color: var(--biru-tua) !important;
+nav ul li a.active:visited{
+    background:white !important;
+
+    color:var(--biru-utama) !important;
+
+    font-weight:bold;
 }
+
 
 /* LOGIN ADMIN */
 
 nav ul li a.login-admin,
-nav ul li a.login-admin:visited {
-    background: var(--kuning);
-    color: var(--biru-tua) !important;
-    font-weight: bold;
+nav ul li a.login-admin:visited{
+    background:white !important;
+
+    color:var(--biru-utama) !important;
+
+    font-weight:bold;
 }
+
+
+nav ul li a.login-admin:hover{
+    background:#eaf4ff !important;
+
+    color:var(--biru-header) !important;
+}
+
 
 /* =========================================
-   HERO / BAGIAN UTAMA BERANDA
+   HERO BERANDA
 ========================================= */
 
-.hero {
-    background: linear-gradient(
-        135deg,
-        #003b73,
-        #0056a6,
-        #0b78d1
-    );
-    color: white;
-    text-align: center;
-    padding: 90px 20px;
+.hero{
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:430px;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:90px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0,59,115,0.80),
+            rgba(0,102,204,0.75)
+        ),
+        url("background.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    color:white;
 }
 
-.hero h2 {
-    font-size: 42px;
-    margin-bottom: 20px;
-    color: white;
+
+/* LAPISAN PESAWAT SAMAR */
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:
+        url("background.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    opacity:0.20;
+
+    z-index:0;
 }
 
-.hero p {
-    max-width: 750px;
-    margin: auto;
-    line-height: 1.8;
-    font-size: 18px;
-    color: #edf7ff;
+
+/* SEMUA ISI HERO DI DEPAN GAMBAR */
+
+.hero h2,
+.hero p,
+.hero button,
+.hero a{
+    position:relative;
+
+    z-index:1;
 }
+
+
+/* JUDUL HERO */
+
+.hero h2{
+    color:white !important;
+
+    font-size:42px;
+
+    margin-bottom:18px;
+
+    text-shadow:
+        0 2px 6px
+        rgba(0,0,0,0.25);
+}
+
+
+/* DESKRIPSI HERO */
+
+.hero p{
+    max-width:750px;
+
+    color:#eaf4ff !important;
+
+    font-size:18px;
+
+    line-height:1.8;
+}
+
 
 /* TOMBOL HERO */
 
 .hero button,
-.hero .btn {
-    display: inline-block;
-    margin-top: 30px;
-    background: white;
-    color: var(--biru-tua);
-    border: none;
-    padding: 15px 35px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.3s;
+.hero .btn{
+    display:inline-block;
+
+    margin-top:28px;
+
+    padding:14px 30px;
+
+    background:white;
+
+    color:var(--biru-utama) !important;
+
+    border:none;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
 }
+
 
 .hero button:hover,
-.hero .btn:hover {
-    background: var(--kuning);
-    color: var(--biru-tua);
-    transform: translateY(-2px);
+.hero .btn:hover{
+    background:#dbeeff;
+
+    transform:translateY(-2px);
 }
+
 
 /* =========================================
-   LAYANAN
+   SECTION LAYANAN
 ========================================= */
 
-.layanan {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 0;
+.layanan{
+    width:90%;
+
+    max-width:1200px;
+
+    margin:60px auto;
+
+    position:relative;
+
+    z-index:2;
 }
 
-.layanan h2,
-.section-title {
-    text-align: center;
-    color: var(--biru-tua);
-    margin-bottom: 40px;
-    font-size: 32px;
+
+.layanan h2{
+    text-align:center;
+
+    color:var(--biru-utama);
+
+    margin-bottom:40px;
+
+    font-size:32px;
 }
+
 
 /* =========================================
-   KARTU MENU
+   CARDS
 ========================================= */
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
+.cards{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
 }
 
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    border-top: 5px solid var(--biru-utama);
-    box-shadow: 0 5px 15px rgba(0, 59, 115, 0.12);
-    transition: 0.3s;
+
+.card{
+    background:
+        rgba(255,255,255,0.97);
+
+    padding:25px;
+
+    border-radius:12px;
+
+    border-top:
+        5px solid
+        var(--biru-utama);
+
+    box-shadow:
+        0 5px 18px
+        rgba(0,0,0,0.12);
+
+    transition:0.3s;
 }
 
-.card:hover {
-    transform: translateY(-8px);
-    border-top-color: var(--biru-terang);
-    box-shadow: 0 10px 25px rgba(0, 59, 115, 0.18);
+
+.card:hover{
+    transform:
+        translateY(-8px);
+
+    border-top-color:
+        var(--biru-terang);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,59,115,0.18);
 }
 
-.card h3 {
-    color: var(--biru-tua);
-    margin-bottom: 15px;
+
+.card h3{
+    color:
+        var(--biru-utama);
+
+    margin-bottom:15px;
+
+    font-size:20px;
 }
 
-.card p {
-    line-height: 1.7;
-    margin-bottom: 15px;
-    color: #555;
+
+.card p{
+    color:#555;
+
+    line-height:1.7;
+
+    margin-bottom:15px;
 }
 
-.card ul {
-    margin-left: 20px;
-    line-height: 2;
-    margin-bottom: 20px;
+
+.card ul{
+    margin-left:20px;
+
+    line-height:2;
+
+    margin-bottom:20px;
 }
 
-/* TOMBOL DALAM CARD */
+
+/* TOMBOL CARD */
 
 .card button,
-.card a {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    background: var(--biru-tua);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-    transition: 0.3s;
+.card a{
+    display:inline-block;
+
+    width:100%;
+
+    padding:12px;
+
+    background:
+        var(--biru-utama);
+
+    color:white !important;
+
+    border:none;
+
+    border-radius:8px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
 }
 
+
 .card button:hover,
-.card a:hover {
-    background: var(--biru-terang);
+.card a:hover{
+    background:
+        var(--biru-terang);
 }
+
 
 /* =========================================
    FORM
+   PENGAJUAN DAN PERPANJANGAN
 ========================================= */
 
-.form-box,
-.form-container {
-    width: 90%;
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 35px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 59, 115, 0.15);
+.pengajuan-section,
+.perpanjangan-section{
+    padding:50px 20px;
 }
+
+
+.form-box,
+.form-container{
+    width:100%;
+
+    max-width:750px;
+
+    margin:auto;
+
+    background:
+        rgba(255,255,255,0.97);
+
+    padding:35px;
+
+    border-radius:15px;
+
+    border-top:
+        5px solid
+        var(--biru-utama);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.12);
+}
+
 
 .form-box h2,
-.form-container h2 {
-    text-align: center;
-    color: var(--biru-tua);
-    margin-bottom: 10px;
+.form-container h2{
+    color:
+        var(--biru-utama);
+
+    text-align:center;
+
+    margin-bottom:10px;
 }
 
-.subtitle {
-    text-align: center;
-    color: #666;
-    margin-bottom: 30px;
+
+.subtitle{
+    text-align:center;
+
+    color:#666;
+
+    margin-bottom:30px;
 }
 
-.form-group {
-    margin-bottom: 20px;
+
+.form-group{
+    margin-bottom:20px;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--biru-tua);
-    font-weight: bold;
+
+.form-group label{
+    display:block;
+
+    margin-bottom:8px;
+
+    color:
+        var(--biru-utama);
+
+    font-weight:bold;
 }
+
 
 .form-group input,
 .form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #b8cde0;
-    border-radius: 8px;
-    outline: none;
-    font-size: 15px;
+.form-group textarea{
+    width:100%;
+
+    padding:12px;
+
+    border:
+        1px solid
+        #cccccc;
+
+    border-radius:8px;
+
+    outline:none;
+
+    font-size:15px;
+
+    background:white;
+
+    transition:0.3s;
 }
+
 
 .form-group input:focus,
 .form-group select:focus,
-.form-group textarea:focus {
-    border-color: var(--biru-terang);
-    box-shadow: 0 0 8px rgba(11, 120, 209, 0.25);
+.form-group textarea:focus{
+    border-color:
+        var(--biru-terang);
+
+    box-shadow:
+        0 0 8px
+        rgba(0,102,204,0.20);
 }
 
-/* TOMBOL KIRIM */
 
-.btn-submit,
-button[type="submit"] {
-    background: var(--biru-tua);
-    color: white;
-    border: none;
-    padding: 14px 25px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
+.form-group small{
+    display:block;
+
+    margin-top:5px;
+
+    color:#777;
 }
 
-.btn-submit:hover,
-button[type="submit"]:hover {
-    background: var(--biru-terang);
+
+/* TOMBOL SUBMIT */
+
+button[type="submit"],
+.btn-submit{
+    width:100%;
+
+    padding:14px;
+
+    background:
+        var(--biru-utama);
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
 }
+
+
+button[type="submit"]:hover,
+.btn-submit:hover{
+    background:
+        var(--biru-terang);
+}
+
+
+/* TOMBOL KEMBALI */
+
+.btn-kembali{
+    display:block;
+
+    width:100%;
+
+    margin-top:15px;
+
+    padding:12px;
+
+    background:#eaf4ff;
+
+    color:
+        var(--biru-utama);
+
+    text-align:center;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    border-radius:8px;
+
+    transition:0.3s;
+}
+
+
+.btn-kembali:hover{
+    background:#dbeeff;
+}
+
 
 /* =========================================
-   HALAMAN STATUS
+   STATUS PENGAJUAN
 ========================================= */
 
-.status-box {
-    width: 90%;
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 59, 115, 0.15);
-    overflow-x: auto;
+main{
+    padding:50px 20px;
+
+    min-height:70vh;
 }
 
-.status-box h2 {
-    text-align: center;
-    color: var(--biru-tua);
-    margin-bottom: 25px;
+
+.status-box{
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    background:
+        rgba(255,255,255,0.97);
+
+    padding:30px;
+
+    border-radius:15px;
+
+    border-top:
+        5px solid
+        var(--biru-utama);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.12);
+
+    overflow-x:auto;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+
+.status-box h2{
+    text-align:center;
+
+    color:
+        var(--biru-utama);
+
+    margin-bottom:25px;
 }
 
-table th {
-    background: var(--biru-tua);
-    color: white;
-    padding: 13px;
-    text-align: center;
+
+/* TABEL */
+
+table{
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
 }
 
-table td {
-    padding: 12px;
-    border-bottom: 1px solid #d9e5ef;
-    text-align: center;
+
+table th{
+    background:
+        var(--biru-utama);
+
+    color:white;
+
+    padding:14px;
+
+    text-align:center;
 }
 
-table tr:hover {
-    background: var(--biru-sangat-muda);
+
+table td{
+    padding:12px;
+
+    border:
+        1px solid
+        #dddddd;
+
+    text-align:center;
 }
+
+
+table tr:nth-child(even){
+    background:#f4f9ff;
+}
+
+
+table tr:hover{
+    background:#eaf4ff;
+}
+
+
+/* =========================================
+   BUTTON GROUP
+========================================= */
+
+.button-group{
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-top:25px;
+}
+
+
+.button-group .btn{
+    display:inline-block;
+
+    padding:12px 22px;
+
+    background:
+        var(--biru-utama);
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+
+.button-group .btn:hover{
+    background:
+        var(--biru-terang);
+}
+
+
+.button-group .secondary{
+    background:#eaf4ff;
+
+    color:
+        var(--biru-utama);
+}
+
+
+.button-group .secondary:hover{
+    background:#dbeeff;
+}
+
 
 /* =========================================
    LOGIN ADMIN
 ========================================= */
 
-.login-page {
-    width: 100%;
-    min-height: 100vh;
-    background: linear-gradient(
-        135deg,
-        #003b73,
-        #0056a6,
-        #0b78d1
-    );
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.login-page{
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+        linear-gradient(
+            rgba(0,59,115,0.82),
+            rgba(0,102,204,0.75)
+        ),
+        url("background.jpg");
+
+    background-size:cover;
+
+    background-position:center;
 }
 
-.login-overlay {
-    width: 100%;
-    min-height: 100vh;
-    background: rgba(0, 59, 115, 0.25);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+
+.login-overlay{
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+    background:
+        rgba(0,40,85,0.45);
 }
 
-.login-box {
-    width: 100%;
-    max-width: 420px;
-    background: rgba(255, 255, 255, 0.98);
-    border-radius: 15px;
-    padding: 35px;
-    text-align: center;
-    border-top: 6px solid var(--biru-terang);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+.login-box{
+    width:100%;
+
+    max-width:420px;
+
+    background:
+        rgba(255,255,255,0.97);
+
+    border-radius:15px;
+
+    border-top:
+        6px solid
+        var(--biru-utama);
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,0.30);
 }
 
-.login-logo {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    margin-bottom: 15px;
+
+/* LOGO LOGIN */
+
+.login-logo{
+    width:100px;
+
+    height:100px;
+
+    object-fit:contain;
+
+    margin-bottom:15px;
 }
 
-.login-box h2 {
-    color: var(--biru-tua);
-    margin-bottom: 5px;
+
+.login-box h2{
+    color:
+        var(--biru-utama);
+
+    margin-bottom:5px;
 }
 
-.login-box h3 {
-    color: var(--biru-utama);
-    font-size: 18px;
-    margin-bottom: 5px;
+
+.login-box h3{
+    color:
+        var(--biru-header);
+
+    font-size:18px;
+
+    margin-bottom:8px;
 }
 
-.login-box p {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 25px;
+
+.login-box p{
+    color:#666;
+
+    font-size:14px;
+
+    margin-bottom:25px;
 }
 
-.input-group {
-    text-align: left;
-    margin-bottom: 18px;
+
+/* INPUT LOGIN */
+
+.input-group{
+    text-align:left;
+
+    margin-bottom:18px;
 }
 
-.input-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: var(--biru-tua);
+
+.input-group label{
+    display:block;
+
+    margin-bottom:8px;
+
+    color:
+        var(--biru-utama);
+
+    font-weight:bold;
 }
 
-.input-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #b8cde0;
-    border-radius: 8px;
-    outline: none;
-    font-size: 15px;
+
+.input-group input{
+    width:100%;
+
+    padding:12px;
+
+    border:
+        1px solid
+        #cccccc;
+
+    border-radius:8px;
+
+    outline:none;
+
+    font-size:15px;
 }
 
-.input-group input:focus {
-    border-color: var(--biru-terang);
-    box-shadow: 0 0 8px rgba(11, 120, 209, 0.3);
+
+.input-group input:focus{
+    border-color:
+        var(--biru-terang);
+
+    box-shadow:
+        0 0 8px
+        rgba(0,102,204,0.20);
 }
 
-.login-btn {
-    width: 100%;
-    padding: 13px;
-    border: none;
-    border-radius: 8px;
-    background: var(--biru-tua);
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+
+/* TOMBOL LOGIN */
+
+.login-btn{
+    width:100%;
+
+    padding:13px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:
+        var(--biru-utama);
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
 }
 
-.login-btn:hover {
-    background: var(--biru-terang);
+
+.login-btn:hover{
+    background:
+        var(--biru-terang);
 }
 
-.back-btn {
-    display: inline-block;
-    margin-top: 18px;
-    text-decoration: none;
-    color: var(--biru-tua);
-    font-weight: bold;
+
+/* KEMBALI LOGIN */
+
+.back-btn{
+    display:inline-block;
+
+    margin-top:18px;
+
+    text-decoration:none;
+
+    color:
+        var(--biru-utama);
+
+    font-weight:bold;
 }
+
+
+.back-btn:hover{
+    color:
+        var(--biru-terang);
+}
+
 
 /* =========================================
    FOOTER
 ========================================= */
 
-footer {
-    background: linear-gradient(
-        135deg,
-        #003b73,
-        #004a8f
-    );
-    color: white;
-    text-align: center;
-    padding: 25px 20px;
-    margin-top: 0;
+footer{
+    width:100%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #003b73,
+            #004a8f
+        );
+
+    color:white;
+
+    text-align:center;
+
+    padding:20px;
+
+    margin-top:50px;
 }
 
-footer p {
-    margin: 5px;
-    color: white;
+
+footer p{
+    color:white;
+
+    margin:5px;
+
+    font-size:14px;
 }
+
 
 /* =========================================
    RESPONSIVE TABLET DAN HP
 ========================================= */
 
-@media (max-width: 768px) {
+@media screen and (max-width:768px){
 
-    header .container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+    header .container{
+        flex-direction:column;
+
+        text-align:center;
+
+        gap:15px;
     }
 
-    .logo {
-        justify-content: center;
+
+    .logo{
+        justify-content:center;
     }
 
-    /* LOGO MASIH CUKUP BESAR DI HP */
-    .logo-jpg,
-    .logo-img {
-        width: 60px;
-        height: 60px;
-        max-width: 60px;
-        max-height: 60px;
+
+    .logo-img,
+    .logo-jpg{
+        width:60px !important;
+
+        height:60px !important;
+
+        max-width:60px !important;
+
+        max-height:60px !important;
     }
 
-    nav {
-        width: 100%;
+
+    .judul h1{
+        font-size:24px;
     }
 
-    nav ul {
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 15px;
+
+    .judul p{
+        font-size:13px;
     }
 
-    nav ul li a {
-        padding: 8px 10px;
-        font-size: 14px;
+
+    .judul span{
+        font-size:11px;
     }
 
-    .hero {
-        padding: 70px 20px;
+
+    nav ul{
+        justify-content:center;
+
+        flex-wrap:wrap;
+
+        gap:5px;
     }
 
-    .hero h2 {
-        font-size: 30px;
+
+    nav ul li a{
+        font-size:13px;
+
+        padding:8px 10px;
     }
 
-    .hero p {
-        font-size: 16px;
+
+    .hero{
+        min-height:380px;
+
+        padding:70px 20px;
     }
 
-    .layanan {
-        padding: 45px 0;
+
+    .hero h2{
+        font-size:30px;
     }
 
-    .layanan h2,
-    .section-title {
-        font-size: 27px;
+
+    .hero p{
+        font-size:16px;
     }
+
+
+    .layanan h2{
+        font-size:27px;
+    }
+
 
     .form-box,
-    .form-container,
-    .status-box {
-        width: 94%;
-        padding: 20px;
+    .form-container{
+        padding:25px 20px;
     }
 
-    table {
-        min-width: 650px;
+
+    .status-box{
+        padding:20px 15px;
     }
 
-    .login-logo {
-        width: 90px;
-        height: 90px;
+
+    .button-group{
+        flex-direction:column;
     }
 
-}
 
-@media (max-width: 480px) {
+    .button-group .btn{
+        width:100%;
 
-    .logo {
-        gap: 10px;
+        text-align:center;
     }
 
-    .logo-jpg,
-    .logo-img {
-        width: 55px;
-        height: 55px;
-    }
 
-    .judul h1 {
-        font-size: 25px;
-    }
-
-    .judul p {
-        font-size: 14px;
-    }
-
-    .judul span {
-        font-size: 11px;
-    }
-
-    .hero h2 {
-        font-size: 27px;
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
-
-    .login-box {
-        padding: 25px 20px;
+    body{
+        background-attachment:scroll;
     }
 
 }
-```
+
+
+/* =========================================
+   RESPONSIVE HP KECIL
+========================================= */
+
+@media screen and (max-width:480px){
+
+    .logo{
+        flex-direction:column;
+    }
+
+
+    .logo-img,
+    .logo-jpg{
+        width:55px !important;
+
+        height:55px !important;
+    }
+
+
+    .hero h2{
+        font-size:26px;
+    }
+
+
+    .hero p{
+        font-size:15px;
+    }
+
+
+    .hero{
+        padding:60px 15px;
+    }
+
+
+    .layanan{
+        width:92%;
+    }
+
+
+    .card{
+        padding:20px;
+    }
+
+
+    .login-box{
+        padding:25px 20px;
+    }
+
+
+    .login-logo{
+        width:80px;
+
+        height:80px;
+    }
+
+}
