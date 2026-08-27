@@ -418,3 +418,31 @@ nav ul li a.login-admin,
 nav ul li a.login-admin:visited{
     color:#f4c96b !important;
 }
+/* =====================================
+   PERBAIKAN LOGO E-PAS
+===================================== */
+
+header .logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+header .logo .logo-jpg {
+    width: 55px !important;
+    height: 55px !important;
+    max-width: 55px !important;
+    max-height: 55px !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 !important;
+}
+
+@media screen and (max-width: 768px) {
+    header .logo .logo-jpg {
+        width: 45px !important;
+        height: 45px !important;
+        max-width: 45px !important;
+        max-height: 45px !important;
+    }
+}
