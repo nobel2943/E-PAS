@@ -1260,3 +1260,86 @@ footer p{
     }
 
 }
+/* =========================================
+   UPDATE LATAR BELAKANG BIRU + PESAWAT
+========================================= */
+
+body{
+    background:
+        linear-gradient(
+            rgba(234,244,255,0.88),
+            rgba(234,244,255,0.88)
+        ),
+        url("background.jpg") center center / cover fixed no-repeat !important;
+}
+
+/* HEADER BIRU */
+
+header{
+    background:#003b73 !important;
+}
+
+/* HERO DENGAN PESAWAT SAMAR */
+
+.hero{
+    position:relative !important;
+
+    background:
+        linear-gradient(
+            rgba(0,59,115,0.72),
+            rgba(0,102,204,0.68)
+        ),
+        url("background.jpg") center center / cover no-repeat !important;
+}
+
+/* LOGO DIPERBESAR */
+
+.logo-img{
+    width:80px !important;
+    height:80px !important;
+    max-width:80px !important;
+    max-height:80px !important;
+    object-fit:contain !important;
+}
+
+/* TULISAN E-PAS PUTIH */
+
+.judul h1{
+    color:white !important;
+}
+
+.judul p{
+    color:#dceeff !important;
+}
+
+.judul span{
+    color:white !important;
+}
+
+/* MENU NAVIGASI PUTIH */
+
+nav ul li a{
+    color:white !important;
+}
+
+/* LOGIN ADMIN */
+
+nav ul li a.login-admin{
+    background:white !important;
+    color:#003b73 !important;
+}
+
+/* HP */
+
+@media(max-width:768px){
+
+    .logo-img{
+        width:65px !important;
+        height:65px !important;
+    }
+
+    body{
+        background-attachment:scroll !important;
+    }
+
+}
