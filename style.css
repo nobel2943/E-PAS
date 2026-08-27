@@ -964,3 +964,15 @@ footer p {
     }
 
 }
+/* TEST CSS */
+
+body {
+    border: 15px solid red !important;
+}
+
+.logo-img {
+    width: 25px !important;
+    height: 25px !important;
+    max-width: 25px !important;
+    max-height: 25px !important;
+}
