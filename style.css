@@ -43,9 +43,9 @@ header .container{
     align-items:center;
 }
 
-.logo-img{
-    width:80px;
-    height:80px;
+.logo-jpg{
+    width:60px;
+    height:60px;
     object-fit:contain;
     margin-right:15px;
 }
