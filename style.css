@@ -15,54 +15,54 @@ body{
     color:#333;
 }
 
-/* ================= HEADER ================= */
+/* =/* ======================================
+   LOGO HEADER
+====================================== */
 
-header{
-    width:100%;
-    background:#003b73;
-    color:white;
-    box-shadow:0 3px 10px rgba(0,0,0,.2);
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
+.logo-jpg {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
 }
 
-header .container{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 0;
-    flex-wrap:wrap;
+/* Bagian tulisan */
+.judul {
+    display: flex;
+    flex-direction: column;
 }
 
-.logo{
-    display:flex;
-    align-items:center;
+.judul h1 {
+    margin: 0;
 }
 
-.logo-img{
-    width:80px;
-    height:80px;
-    object-fit:contain;
-    margin-right:15px;
+.judul p {
+    margin: 2px 0;
 }
 
-.judul h1{
-    font-size:28px;
-    color:white;
+.judul span {
+    margin-top: 2px;
 }
 
-.judul p{
-    font-size:15px;
-    color:#FFD166;
+/* Warna khusus Login Admin */
+nav ul li a.login-admin,
+nav ul li a.login-admin:visited {
+    color: #f4c96b !important;
 }
 
-.judul span{
-    font-size:13px;
-    color:white;
+/* Tampilan HP/tablet */
+@media screen and (max-width: 768px) {
+    .logo-img {
+        width: 45px;
+        height: 45px;
+    }
 }
 
 /* ================= MENU ================= */
@@ -221,7 +221,7 @@ header .container{
     text-align:center;
 }
 
-.logo-img{
+.logo-jpg{
     margin-right:0;
     margin-bottom:10px;
 }
