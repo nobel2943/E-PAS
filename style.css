@@ -1,14 +1,7 @@
-```css
-/* =========================================
-   E-PAS
-   ELECTRONIC PASS SYSTEM
-   BANDAR UDARA RAHADI OESMAN KETAPANG
-========================================= */
-
-
-/* =========================================
-   RESET
-========================================= */
+/* ===========================
+   E-PAS RAOS AIRPORT
+   STYLE.CSS
+=========================== */
 
 *{
     margin:0;
@@ -17,35 +10,19 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
-
-/* =========================================
-   WARNA UTAMA
-========================================= */
-
-:root{
-    --biru-tua:#003b73;
-    --biru:#0055a5;
-    --biru-muda:#eef5fb;
-    --kuning:#f4c96b;
-    --putih:#ffffff;
-    --abu:#555555;
-}
-
-
-/* =========================================
-   BODY
-========================================= */
-
 body{
     background:#f4f7fb;
     color:#333;
-    min-height:100vh;
 }
 
+/* ================= HEADER ================= */
 
-/* =========================================
-   CONTAINER
-========================================= */
+header{
+    width:100%;
+    background:#003b73;
+    color:white;
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
 
 .container{
     width:90%;
@@ -53,1107 +30,391 @@ body{
     margin:auto;
 }
 
-
-/* =========================================
-   HEADER
-========================================= */
-
-header{
-    background:#003b73;
-    border-bottom:4px solid #f4c96b;
-    box-shadow:0 3px 10px rgba(0,0,0,0.15);
-}
-
 header .container{
-    min-height:85px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    padding:15px 0;
+    flex-wrap:wrap;
 }
-
-
-/* =========================================
-   LOGO
-========================================= */
 
 .logo{
     display:flex;
     align-items:center;
-    gap:12px;
 }
 
-
-/* LOGO BANDARA */
-
-.logo-img,
-.logo-jpg{
-    width:68px;
-    height:68px;
+.logo-img{
+    width:80px;
+    height:80px;
     object-fit:contain;
-    display:block;
-    flex-shrink:0;
-}
-
-
-/* =========================================
-   JUDUL E-PAS
-========================================= */
-
-.judul{
-    display:flex;
-    flex-direction:column;
+    margin-right:15px;
 }
 
 .judul h1{
+    font-size:28px;
     color:white;
-    font-size:26px;
-    margin:0;
 }
 
 .judul p{
-    color:#f4c96b;
-    font-size:14px;
-    margin:3px 0;
+    font-size:15px;
+    color:#FFD166;
 }
 
 .judul span{
-    color:#dbeaff;
-    font-size:12px;
+    font-size:13px;
+    color:white;
 }
 
-
-/* =========================================
-   NAVIGASI
-========================================= */
+/* ================= MENU ================= */
 
 nav ul{
     display:flex;
-    align-items:center;
     list-style:none;
-    gap:5px;
 }
 
 nav ul li{
-    list-style:none;
+    margin-left:20px;
 }
 
 nav ul li a{
-    display:block;
-    padding:9px 11px;
     text-decoration:none;
     color:white;
-    font-size:14px;
     font-weight:bold;
-    border-radius:6px;
-    transition:0.3s;
+    transition:.3s;
 }
 
-
-/* MENU HOVER */
-
-nav ul li a:hover{
-    background:#f4c96b;
-    color:#003b73;
-}
-
-
-/* MENU AKTIF */
-
+nav ul li a:hover,
 nav ul li a.active{
-    background:#f4c96b;
-    color:#003b73;
+    color:#FFD166;
 }
 
-
-/* LOGIN ADMIN */
-
-nav ul li a.login-admin{
-    color:#f4c96b;
-    border:1px solid #f4c96b;
-}
-
-nav ul li a.login-admin:hover{
-    background:#f4c96b;
-    color:#003b73;
-}
-
-
-/* =========================================
-   HERO BERANDA
-   TAMPILAN LEBIH SEDERHANA
-========================================= */
+/* ================= HERO ================= */
 
 .hero{
-    position:relative;
-    overflow:hidden;
-
-    min-height:300px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    background:
-        linear-gradient(
-            rgba(0,59,115,0.90),
-            rgba(0,74,143,0.88)
-        ),
-        url("background.jpg");
-
+    background:linear-gradient(rgba(0,59,115,.8),rgba(0,59,115,.8)),
+    url("https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?auto=format&fit=crop&w=1200&q=80");
     background-size:cover;
     background-position:center;
-    background-repeat:no-repeat;
-
     color:white;
-
-    padding:45px 20px;
+    text-align:center;
+    padding:80px 20px;
 }
-
-
-/* BAYANGAN PESAWAT */
-
-.hero::before{
-    content:"✈";
-
-    position:absolute;
-
-    right:-20px;
-    bottom:-65px;
-
-    font-size:210px;
-
-    color:rgba(255,255,255,0.06);
-
-    transform:rotate(-18deg);
-
-    pointer-events:none;
-}
-
-
-/* ISI HERO */
-
-.hero .container,
-.hero-content{
-    position:relative;
-    z-index:1;
-}
-
-
-/* JUDUL SELAMAT DATANG */
 
 .hero h2{
-    color:white;
-
-    font-size:29px;
-
-    font-weight:bold;
-
-    margin-bottom:12px;
+    font-size:40px;
+    margin-bottom:20px;
 }
-
-
-/* DESKRIPSI HERO */
 
 .hero p{
-    max-width:650px;
-
+    max-width:700px;
     margin:auto;
-
-    color:#eef6ff;
-
-    font-size:15px;
-
-    line-height:1.7;
+    line-height:1.8;
+    font-size:18px;
 }
 
-
-/* TOMBOL HERO */
-
-.hero button,
-.hero .btn{
-    display:inline-block;
-
-    margin-top:20px;
-
-    padding:11px 25px;
-
-    background:#f4c96b;
-
+.hero button{
+    margin-top:30px;
+    background:#FFD166;
     color:#003b73;
-
-    text-decoration:none;
-
     border:none;
-
-    border-radius:7px;
-
-    font-size:14px;
-
-    font-weight:bold;
-
+    padding:15px 35px;
+    border-radius:8px;
     cursor:pointer;
-
-    transition:0.3s;
+    font-size:16px;
+    font-weight:bold;
+    transition:.3s;
 }
 
-
-.hero button:hover,
-.hero .btn:hover{
+.hero button:hover{
     background:white;
-
-    color:#003b73;
-
-    transform:translateY(-2px);
 }
 
-
-/* =========================================
-   LAYANAN BERANDA
-========================================= */
+/* ================= LAYANAN ================= */
 
 .layanan{
     width:90%;
     max-width:1200px;
-
-    margin:50px auto;
+    margin:60px auto;
 }
-
 
 .layanan h2{
     text-align:center;
-
     color:#003b73;
-
-    font-size:27px;
-
-    margin-bottom:30px;
+    margin-bottom:40px;
+    font-size:32px;
 }
-
-
-/* =========================================
-   CARD
-========================================= */
 
 .cards{
     display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(250px,1fr));
-
-    gap:22px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
 }
-
 
 .card{
     background:white;
-
-    padding:22px;
-
-    border-radius:10px;
-
-    border-top:5px solid #003b73;
-
-    box-shadow:
-    0 4px 15px
-    rgba(0,0,0,0.10);
-
-    transition:0.3s;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
 }
-
 
 .card:hover{
-    transform:translateY(-5px);
-
-    border-top-color:#f4c96b;
+    transform:translateY(-8px);
 }
-
 
 .card h3{
     color:#003b73;
-
-    margin-bottom:12px;
-
-    font-size:19px;
-}
-
-
-.card p{
-    color:#555;
-
-    font-size:14px;
-
-    line-height:1.7;
-
     margin-bottom:15px;
 }
 
+.card p{
+    line-height:1.7;
+    margin-bottom:15px;
+}
 
 .card ul{
     margin-left:20px;
-
-    line-height:1.8;
-
-    margin-bottom:15px;
-}
-
-
-/* TOMBOL CARD */
-
-.card button,
-.card a{
-    display:block;
-
-    width:100%;
-
-    padding:11px;
-
-    background:#003b73;
-
-    color:white;
-
-    text-align:center;
-
-    text-decoration:none;
-
-    border:none;
-
-    border-radius:7px;
-
-    font-size:14px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:0.3s;
-}
-
-
-.card button:hover,
-.card a:hover{
-    background:#0055a5;
-}
-
-
-/* =========================================
-   HALAMAN PENGAJUAN
-========================================= */
-
-.pengajuan-section,
-.perpanjangan-section{
-    width:100%;
-
-    min-height:70vh;
-
-    padding:45px 20px;
-
-    background:#f4f7fb;
-}
-
-
-/* FORM BOX */
-
-.form-box,
-.form-container{
-    width:100%;
-
-    max-width:750px;
-
-    margin:auto;
-
-    background:white;
-
-    padding:30px;
-
-    border-radius:10px;
-
-    border-top:5px solid #003b73;
-
-    box-shadow:
-    0 5px 20px
-    rgba(0,0,0,0.10);
-}
-
-
-.form-box h2,
-.form-container h2{
-    text-align:center;
-
-    color:#003b73;
-
-    margin-bottom:8px;
-}
-
-
-.subtitle{
-    text-align:center;
-
-    color:#666;
-
-    font-size:14px;
-
-    margin-bottom:25px;
-}
-
-
-/* FORM GROUP */
-
-.form-group{
-    margin-bottom:18px;
-}
-
-
-.form-group label{
-    display:block;
-
-    color:#003b73;
-
-    font-weight:bold;
-
-    margin-bottom:7px;
-}
-
-
-/* INPUT */
-
-.form-group input,
-.form-group select,
-.form-group textarea{
-    width:100%;
-
-    padding:11px;
-
-    border:1px solid #ccc;
-
-    border-radius:7px;
-
-    font-size:14px;
-
-    background:white;
-}
-
-
-/* FOCUS INPUT */
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-    outline:none;
-
-    border-color:#0055a5;
-
-    box-shadow:
-    0 0 0 3px
-    rgba(0,85,165,0.10);
-}
-
-
-.form-group small{
-    display:block;
-
-    color:#777;
-
-    margin-top:5px;
-
-    font-size:12px;
-}
-
-
-/* =========================================
-   TOMBOL FORM
-========================================= */
-
-button[type="submit"],
-.btn-submit{
-    width:100%;
-
-    padding:13px;
-
-    background:#003b73;
-
-    color:white;
-
-    border:none;
-
-    border-radius:7px;
-
-    font-size:15px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:0.3s;
-}
-
-
-button[type="submit"]:hover,
-.btn-submit:hover{
-    background:#0055a5;
-}
-
-
-/* TOMBOL KEMBALI */
-
-.btn-kembali{
-    display:inline-block;
-
-    margin-bottom:15px;
-
-    padding:10px 20px;
-
-    background:#f4c96b;
-
-    color:#003b73;
-
-    text-decoration:none;
-
-    border-radius:7px;
-
-    font-size:14px;
-
-    font-weight:bold;
-}
-
-
-.btn-kembali:hover{
-    background:#e8b94f;
-}
-
-
-/* =========================================
-   HALAMAN STATUS
-========================================= */
-
-main{
-    min-height:70vh;
-
-    padding:45px 20px;
-
-    background:#f4f7fb;
-}
-
-
-.status-box{
-    width:100%;
-
-    max-width:1100px;
-
-    margin:auto;
-
-    background:white;
-
-    padding:30px;
-
-    border-radius:10px;
-
-    border-top:5px solid #003b73;
-
-    box-shadow:
-    0 5px 20px
-    rgba(0,0,0,0.10);
-}
-
-
-.status-box h2{
-    text-align:center;
-
-    color:#003b73;
-
-    margin-bottom:25px;
-}
-
-
-/* =========================================
-   TABLE
-========================================= */
-
-table{
-    width:100%;
-
-    border-collapse:collapse;
-
-    font-size:14px;
-}
-
-
-table th{
-    background:#003b73;
-
-    color:white;
-
-    padding:13px;
-
-    text-align:left;
-}
-
-
-table td{
-    padding:12px;
-
-    border-bottom:
-    1px solid #ddd;
-}
-
-
-table tr:hover td{
-    background:#eef5fb;
-}
-
-
-/* =========================================
-   BUTTON GROUP
-========================================= */
-
-.button-group{
-    display:flex;
-
-    gap:12px;
-
-    flex-wrap:wrap;
-
-    margin-top:25px;
-}
-
-
-.button-group .btn{
-    display:inline-block;
-
-    margin-top:0;
-
-    padding:11px 20px;
-
-    background:#003b73;
-
-    color:white;
-
-    text-decoration:none;
-
-    border-radius:7px;
-
-    font-weight:bold;
-}
-
-
-.button-group .btn:hover{
-    background:#0055a5;
-}
-
-
-.btn.secondary{
-    background:#f4c96b;
-
-    color:#003b73;
-}
-
-
-.btn.secondary:hover{
-    background:#e8b94f;
-}
-
-
-/* =========================================
-   LOGIN ADMIN
-========================================= */
-
-.login-page{
-    width:100%;
-
-    min-height:100vh;
-
-    background:
-        linear-gradient(
-            rgba(0,59,115,0.88),
-            rgba(0,74,143,0.88)
-        ),
-        url("background.jpg");
-
-    background-size:cover;
-
-    background-position:center;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-}
-
-
-.login-overlay{
-    width:100%;
-
-    min-height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:20px;
-}
-
-
-/* BOX LOGIN */
-
-.login-box{
-    width:100%;
-
-    max-width:400px;
-
-    background:white;
-
-    padding:30px;
-
-    text-align:center;
-
-    border-radius:12px;
-
-    border-top:
-    5px solid #f4c96b;
-
-    box-shadow:
-    0 10px 30px
-    rgba(0,0,0,0.25);
-}
-
-
-/* LOGO LOGIN */
-
-.login-logo{
-    width:85px;
-
-    height:85px;
-
-    object-fit:contain;
-
-    margin-bottom:12px;
-}
-
-
-.login-box h2{
-    color:#003b73;
-
-    margin-bottom:7px;
-}
-
-
-.login-box h3{
-    color:#0055a5;
-
-    font-size:17px;
-
-    margin-bottom:7px;
-}
-
-
-.login-box p{
-    color:#666;
-
-    font-size:14px;
-
+    line-height:2;
     margin-bottom:20px;
 }
 
-
-/* INPUT LOGIN */
-
-.input-group{
-    text-align:left;
-
-    margin-bottom:16px;
-}
-
-
-.input-group label{
-    display:block;
-
-    margin-bottom:7px;
-
-    color:#003b73;
-
-    font-weight:bold;
-}
-
-
-.input-group input{
+.card button{
     width:100%;
-
-    padding:11px;
-
-    border:1px solid #ccc;
-
-    border-radius:7px;
-
-    font-size:14px;
-}
-
-
-.input-group input:focus{
-    outline:none;
-
-    border-color:#0055a5;
-}
-
-
-/* TOMBOL LOGIN */
-
-.login-btn{
-    width:100%;
-
-    padding:13px;
-
-    border:none;
-
-    border-radius:7px;
-
+    padding:12px;
     background:#003b73;
-
     color:white;
-
-    font-size:15px;
-
-    font-weight:bold;
-
+    border:none;
+    border-radius:8px;
     cursor:pointer;
+    font-size:15px;
+    transition:.3s;
 }
 
-
-.login-btn:hover{
+.card button:hover{
     background:#0055a5;
 }
 
-
-/* KEMBALI LOGIN */
-
-.back-btn{
-    display:inline-block;
-
-    margin-top:18px;
-
-    text-decoration:none;
-
-    color:#003b73;
-
-    font-size:14px;
-
-    font-weight:bold;
-}
-
-
-.back-btn:hover{
-    color:#0055a5;
-}
-
-
-/* =========================================
-   PESAN SUKSES / ERROR
-========================================= */
-
-#pesanStatus,
-#pesan{
-    margin-top:15px;
-
-    text-align:center;
-}
-
-
-/* =========================================
-   FOOTER
-========================================= */
+/* ================= FOOTER ================= */
 
 footer{
     background:#003b73;
-
-    border-top:
-    4px solid #f4c96b;
-
     color:white;
-
     text-align:center;
-
     padding:20px;
-
-    margin-top:40px;
+    margin-top:50px;
 }
-
 
 footer p{
     margin:5px;
-
-    color:white;
-
-    font-size:13px;
 }
 
-
-/* =========================================
-   RESPONSIVE TABLET DAN HP
-========================================= */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:768px){
 
-    header .container{
-        flex-direction:column;
-
-        padding:15px 0;
-
-        text-align:center;
-    }
-
-
-    .logo{
-        flex-direction:column;
-    }
-
-
-    .logo-img,
-    .logo-jpg{
-        width:60px;
-        height:60px;
-    }
-
-
-    nav ul{
-        justify-content:center;
-
-        flex-wrap:wrap;
-
-        margin-top:15px;
-    }
-
-
-    nav ul li a{
-        font-size:12px;
-
-        padding:8px 9px;
-    }
-
-
-    /* HERO LEBIH KECIL DI HP */
-
-    .hero{
-        min-height:270px;
-
-        padding:40px 15px;
-    }
-
-
-    .hero h2{
-        font-size:24px;
-    }
-
-
-    .hero p{
-        font-size:14px;
-
-        line-height:1.6;
-    }
-
-
-    .hero::before{
-        font-size:160px;
-
-        right:-30px;
-
-        bottom:-50px;
-    }
-
-
-    /* LAYANAN */
-
-    .layanan{
-        margin:35px auto;
-    }
-
-
-    .layanan h2{
-        font-size:23px;
-    }
-
-
-    /* FORM */
-
-    .form-box,
-    .form-container,
-    .status-box{
-        padding:20px;
-    }
-
-
-    /* TABLE */
-
-    table{
-        font-size:11px;
-    }
-
-
-    table th,
-    table td{
-        padding:8px 5px;
-    }
-
-
-    /* BUTTON GROUP */
-
-    .button-group{
-        flex-direction:column;
-    }
-
-
-    .button-group .btn{
-        width:100%;
-
-        text-align:center;
-    }
-
-
-    /* LOGIN */
-
-    .login-box{
-        padding:25px 20px;
-    }
-
+header .container{
+    flex-direction:column;
 }
 
+.logo{
+    flex-direction:column;
+    text-align:center;
+}
 
-/* =========================================
-   RESPONSIVE HP KECIL
-========================================= */
+.logo-img{
+    margin-right:0;
+    margin-bottom:10px;
+}
 
-@media(max-width:480px){
+nav ul{
+    flex-direction:column;
+    width:100%;
+    margin-top:20px;
+}
 
-    .judul h1{
-        font-size:23px;
-    }
+nav ul li{
+    margin:10px 0;
+    text-align:center;
+}
 
+.hero{
+    padding:60px 20px;
+}
 
-    .judul p{
-        font-size:12px;
-    }
+.hero h2{
+    font-size:28px;
+}
 
-
-    .judul span{
-        font-size:10px;
-    }
-
-
-    .hero h2{
-        font-size:22px;
-    }
-
-
-    .hero p{
-        font-size:13px;
-    }
-
-
-    .hero::before{
-        font-size:130px;
-    }
+.hero p{
+    font-size:16px;
+}
 
 }
-```
+/* =======================================
+   LOGIN PAGE
+======================================= */
+
+.login-page{
+    width:100%;
+    min-height:100vh;
+    background:url("background.jpg") center center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-overlay{
+    width:100%;
+    min-height:100vh;
+    background:rgba(0,40,85,0.70);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.login-box{
+    width:100%;
+    max-width:420px;
+    background:rgba(255,255,255,0.95);
+    border-radius:15px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.login-logo{
+    width:90px;
+    height:90px;
+    object-fit:contain;
+    margin-bottom:15px;
+}
+
+.login-box h2{
+    color:#003b73;
+    margin-bottom:5px;
+}
+
+.login-box h3{
+    color:#444;
+    font-size:18px;
+    margin-bottom:5px;
+}
+
+.login-box p{
+    color:#666;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+.input-group{
+    text-align:left;
+    margin-bottom:18px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+    color:#003b73;
+}
+
+.input-group input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    outline:none;
+    font-size:15px;
+    transition:0.3s;
+}
+
+.input-group input:focus{
+    border-color:#003b73;
+    box-shadow:0 0 8px rgba(0,59,115,.3);
+}
+
+.login-btn{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:8px;
+    background:#003b73;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    background:#0059b3;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-top:18px;
+    text-decoration:none;
+    color:#003b73;
+    font-weight:bold;
+}
+
+.back-btn:hover{
+    color:#0059b3;
+}
+
+/* Responsive */
+
+@media(max-width:600px){
+
+.login-box{
+    padding:25px;
+}
+
+.login-logo{
+    width:75px;
+    height:75px;
+}
+
+.login-box h2{
+    font-size:28px;
+}
+
+.login-box h3{
+    font-size:16px;
+}
+
+}
+/* =======================================
+   PERBAIKAN WARNA MENU NAVIGASI
+======================================= */
+
+/* Warna semua menu navbar */
+nav ul li a{
+    color:#e8e8e8 !important;
+    text-decoration:none !important;
+    font-weight:600;
+    transition:0.3s;
+}
+
+/* Menu saat disentuh */
+nav ul li a:hover{
+    color:#f4c96b !important;
+}
+
+/* Menghilangkan warna ungu/biru setelah link diklik */
+nav ul li a:visited{
+    color:#e8e8e8 !important;
+}
+
+/* Menu halaman yang sedang aktif */
+nav ul li a.active,
+nav ul li a.active:visited{
+    color:#f4c96b !important;
+}
+
+/* Warna khusus Login Admin */
+nav ul li a.login-admin,
+nav ul li a.login-admin:visited{
+    color:#f4c96b !important;
+}
