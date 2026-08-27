@@ -92,14 +92,23 @@ header .container {
 /* =========================================================
    LOGO
 ========================================================= */
+/* =========================================
+   LOGO BANDARA - UKURAN LEBIH KECIL
+========================================= */
 
 .logo {
     display: flex;
     align-items: center;
+    gap: 8px;
+}
 
-    gap: 10px;
-
+.logo-img {
+    width: 40px !important;
+    height: 40px !important;
+    object-fit: contain;
+    display: block;
     flex-shrink: 0;
+}
 }
 
 
