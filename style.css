@@ -824,3 +824,829 @@ table tr:hover {
 
 }
 ```
+# style.css — E-PAS Bandar Udara Rahadi Oesman Ketapang
+
+```css
+/* =========================================
+   STYLE.CSS
+   E-PAS - ELECTRONIC PASS SYSTEM
+   BANDAR UDARA RAHADI OESMAN KETAPANG
+========================================= */
+
+
+/* =========================================
+   RESET DASAR
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+    background: #123d6a;
+    color: white;
+    padding: 12px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* LOGO JPG */
+
+.logo-img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   JUDUL LOGO
+========================================= */
+
+.judul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.judul h1 {
+    margin: 0;
+    color: white;
+    font-size: 32px;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+
+.judul p {
+    margin: 3px 0 0;
+    color: #f4c96b;
+    font-size: 17px;
+}
+
+
+.judul span {
+    margin-top: 2px;
+    color: #e2e8f0;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+
+nav ul li {
+    list-style: none;
+}
+
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+
+/* SAAT DIARAHKAN */
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #f4c96b;
+}
+
+
+/* MENU AKTIF */
+
+nav ul li a.active {
+    color: #f4c96b;
+    border-bottom: 3px solid #f4c96b;
+    border-radius: 0;
+}
+
+
+/* WARNA KHUSUS LOGIN ADMIN */
+
+nav ul li a.login-admin,
+nav ul li a.login-admin:visited {
+    color: #f4c96b !important;
+    font-weight: bold;
+}
+
+
+/* =========================================
+   HERO / BANNER UTAMA
+========================================= */
+
+.hero {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(18, 61, 106, 0.78),
+            rgba(18, 61, 106, 0.88)
+        ),
+        url("background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+}
+
+
+.hero-content {
+    max-width: 900px;
+    padding: 60px 20px;
+}
+
+
+.hero h2 {
+    font-size: 56px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+
+.hero p {
+    max-width: 850px;
+    margin: auto;
+    font-size: 24px;
+    line-height: 1.8;
+    color: #f1f5f9;
+}
+
+
+/* =========================================
+   TOMBOL AJUKAN PAS
+========================================= */
+
+.btn {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 17px 55px;
+
+    background: #f4c96b;
+    color: #123d6a;
+
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+
+    border-radius: 12px;
+
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.btn:hover {
+    background: #ffd979;
+    transform: translateY(-3px);
+}
+
+
+.btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   BAGIAN MENU LAYANAN
+========================================= */
+
+.layanan {
+    padding: 70px 0;
+    background: #f4f6f9;
+}
+
+
+.section-title {
+    text-align: center;
+    color: #123d6a;
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+
+.layanan-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+
+/* KARTU LAYANAN */
+
+.card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+
+    transition: 0.3s;
+}
+
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+.card h3 {
+    color: #123d6a;
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+
+.card p {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+
+/* LINK DALAM CARD */
+
+.card a {
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    background: #123d6a;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    transition: 0.3s;
+}
+
+
+.card a:hover {
+    background: #1e568e;
+}
+
+
+/* =========================================
+   PENGUMUMAN
+========================================= */
+
+.pengumuman {
+    padding: 60px 0;
+    background: white;
+}
+
+
+.pengumuman-box {
+    max-width: 900px;
+    margin: auto;
+
+    background: #fff8e8;
+
+    border-left: 6px solid #f4c96b;
+
+    padding: 25px 30px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+.pengumuman-box h3 {
+    color: #123d6a;
+    margin-bottom: 10px;
+}
+
+
+.pengumuman-box p {
+    color: #555;
+}
+
+
+/* =========================================
+   INFO SECTION
+========================================= */
+
+.info-section {
+    padding: 70px 0;
+    background: #eef3f8;
+}
+
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+
+.info-card {
+    background: white;
+    padding: 30px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+.info-card h3 {
+    color: #123d6a;
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+main {
+    min-height: 500px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background: #123d6a;
+    color: white;
+
+    text-align: center;
+
+    padding: 35px 20px;
+
+    margin-top: 0;
+}
+
+
+footer p {
+    margin: 8px 0;
+    font-size: 17px;
+    color: #e5e7eb;
+}
+
+
+/* =========================================
+   FORM UMUM
+========================================= */
+
+.form-container {
+    width: 90%;
+    max-width: 800px;
+
+    margin: 50px auto;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.form-container h2 {
+    text-align: center;
+    color: #123d6a;
+    margin-bottom: 30px;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 7px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #123d6a;
+    box-shadow: 0 0 5px rgba(18, 61, 106, 0.3);
+}
+
+
+/* TOMBOL SUBMIT */
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+
+.btn-submit {
+    width: 100%;
+
+    padding: 15px;
+
+    background: #123d6a;
+    color: white;
+
+    border-radius: 8px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+.btn-submit:hover {
+    background: #1e568e;
+}
+
+
+/* =========================================
+   TABEL STATUS
+========================================= */
+
+.status-box {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 50px auto;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+
+    overflow-x: auto;
+}
+
+
+.status-box h2 {
+    text-align: center;
+    color: #123d6a;
+    margin-bottom: 25px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+table th {
+    background: #123d6a;
+    color: white;
+    padding: 13px;
+    text-align: center;
+}
+
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+
+table tr:hover {
+    background: #f5f7fa;
+}
+
+
+/* =========================================
+   TAMPILAN TABLET
+========================================= */
+
+@media screen and (max-width: 1024px) {
+
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    nav ul {
+        gap: 2px;
+    }
+
+    .layanan-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h2 {
+        font-size: 45px;
+    }
+
+    .hero p {
+        font-size: 21px;
+    }
+
+}
+
+
+/* =========================================
+   TAMPILAN HP
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    .container {
+        width: 94%;
+    }
+
+
+    /* HEADER */
+
+    header {
+        padding: 10px 0;
+    }
+
+
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+    /* LOGO LEBIH KECIL */
+
+    .logo-img {
+        width: 50px;
+        height: 50px;
+    }
+
+
+    .judul h1 {
+        font-size: 26px;
+    }
+
+
+    .judul p {
+        font-size: 15px;
+    }
+
+
+    .judul span {
+        font-size: 12px;
+    }
+
+
+    /* NAVBAR */
+
+    nav {
+        width: 100%;
+    }
+
+
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3px;
+    }
+
+
+    nav ul li a {
+        font-size: 14px;
+        padding: 8px 8px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 420px;
+    }
+
+
+    .hero-content {
+        padding: 40px 15px;
+    }
+
+
+    .hero h2 {
+        font-size: 38px;
+    }
+
+
+    .hero p {
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+
+    /* TOMBOL */
+
+    .btn {
+        padding: 14px 40px;
+        font-size: 18px;
+    }
+
+
+    /* LAYANAN */
+
+    .layanan {
+        padding: 50px 0;
+    }
+
+
+    .section-title {
+        font-size: 28px;
+    }
+
+
+    .layanan-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* FORM */
+
+    .form-container {
+        width: 94%;
+        padding: 22px 18px;
+    }
+
+
+    /* STATUS */
+
+    .status-box {
+        width: 94%;
+        padding: 18px;
+    }
+
+
+    table {
+        min-width: 650px;
+    }
+
+
+    /* FOOTER */
+
+    footer p {
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================
+   TAMPILAN HP KECIL
+========================================= */
+
+@media screen and (max-width: 480px) {
+
+    .logo {
+        gap: 8px;
+    }
+
+
+    .logo-img {
+        width: 45px;
+        height: 45px;
+    }
+
+
+    .judul h1 {
+        font-size: 23px;
+    }
+
+
+    .judul p {
+        font-size: 13px;
+    }
+
+
+    .judul span {
+        font-size: 10px;
+    }
+
+
+    nav ul li a {
+        font-size: 13px;
+        padding: 7px 6px;
+    }
+
+
+    .hero h2 {
+        font-size: 32px;
+    }
+
+
+    .hero p {
+        font-size: 16px;
+    }
+
+
+    .btn {
+        width: 90%;
+        padding: 14px 15px;
+    }
+
+}
+```
