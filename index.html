@@ -2,215 +2,291 @@
 <html lang="id">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-PAS | Electronic Pass System</title>
 
-<title>E-PAS | Electronic Pass System</title>
-
-<link rel="stylesheet" href="./style.css?v=99">
-
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css?v=100">
 </head>
 
 <body>
-  <img src="assets/" IMG_20260827_091113.jpg"width="150">
 
-<!-- ================= HEADER ================= -->
+    <!-- ================= HEADER ================= -->
 
-<header>
+    <header>
 
+        <div class="container">
 
-<div class="logo">
+            <!-- LOGO + IDENTITAS -->
+            <div class="logo">
 
-<img src="IMG_20260827_091113.jpg" alt="IMG_20260827_091113.jpg" class="logo-jpg">
+                <img
+                    src="IMG_20260827_091113.jpg"
+                    alt="Logo Bandar Udara Rahadi Oesman Ketapang"
+                    class="logo-img"
+                >
 
-<div class="judul">
+                <div class="judul">
 
-<h1>E-PAS</h1>
+                    <h1>E-PAS</h1>
 
-<p>Electronic Pass System</p>
+                    <p>
+                        Electronic Pass System
+                    </p>
 
-<span>Bandar Udara Rahadi Oesman Ketapang</span>
+                    <span>
+                        Bandar Udara Rahadi Oesman Ketapang
+                    </span>
 
-</div>
+                </div>
 
-</div>
-<nav>
-    <ul>
-        <li><a href="index.html" class="active">Beranda</a></li>
-        <li><a href="pengajuan.html">Pengajuan PAS</a></li>
-        <li><a href="perpanjangan.html">Perpanjangan PAS</a></li>
-        <li><a href="persyaratan.html">Persyaratan</a></li>
-        <li><a href="panduan.html">Panduan</a></li>
-        <li><a href="kontak.html">Kontak</a></li>
-        <li><a href="status.html">Cek Status</a></li>
-        <li><a href="login.html" class="login-admin">Login Admin</a></li>
-    </ul>
-</nav>
+            </div>
 
-</header>
 
-<!-- ================= HERO ================= -->
+            <!-- ================= NAVIGATION ================= -->
 
-<section class="hero">
+            <nav>
 
-<div class="hero-text">
+                <ul>
 
-<h2>Selamat Datang di E-PAS</h2>
+                    <li>
+                        <a href="index.html" class="active">
+                            Beranda
+                        </a>
+                    </li>
 
-<p>
+                    <li>
+                        <a href="pengajuan.html">
+                            Pengajuan PAS
+                        </a>
+                    </li>
 
-Electronic Pass System merupakan sistem layanan digital
-untuk pengajuan dan perpanjangan PAS Bandar Udara
-Rahadi Oesman Ketapang.
+                    <li>
+                        <a href="perpanjangan.html">
+                            Perpanjangan PAS
+                        </a>
+                    </li>
 
-</p>
+                    <li>
+                        <a href="persyaratan.html">
+                            Persyaratan
+                        </a>
+                    </li>
 
-<a href="pengajuan.html">
+                    <li>
+                        <a href="panduan.html">
+                            Panduan
+                        </a>
+                    </li>
 
-<button>
+                    <li>
+                        <a href="kontak.html">
+                            Kontak
+                        </a>
+                    </li>
 
-Ajukan PAS
+                    <li>
+                        <a href="status.html">
+                            Cek Status
+                        </a>
+                    </li>
 
-</button>
+                    <li>
+                        <a
+                            href="login.html"
+                            class="login-admin"
+                        >
+                            Login Admin
+                        </a>
+                    </li>
 
-</a>
+                </ul>
 
-</div>
+            </nav>
 
-</section>
+        </div>
 
-<!-- ================= MENU ================= -->
+    </header>
 
-<section class="layanan">
 
-<h2>Layanan E-PAS</h2>
+    <!-- ================= HERO ================= -->
 
-<div class="cards">
+    <section class="hero">
 
-<div class="card">
+        <div class="hero-text">
 
-<h3>Pengajuan PAS Baru</h3>
+            <h2>
+                Selamat Datang di E-PAS
+            </h2>
 
-<p>
+            <p>
+                Electronic Pass System merupakan sistem layanan digital
+                untuk pengajuan dan perpanjangan PAS Bandar Udara
+                Rahadi Oesman Ketapang.
+            </p>
 
-Mengajukan PAS baru secara online dengan proses yang
-lebih cepat dan mudah.
+            <a
+                href="pengajuan.html"
+                class="hero-link"
+            >
+                <button type="button">
+                    Ajukan PAS
+                </button>
+            </a>
 
-</p>
+        </div>
 
-<a href="pengajuan.html">
+    </section>
 
-<button>
 
-Ajukan Sekarang
+    <!-- ================= LAYANAN ================= -->
 
-</button>
+    <section class="layanan">
 
-</a>
+        <h2>
+            Layanan E-PAS
+        </h2>
 
-</div>
 
-<div class="card">
+        <div class="cards">
 
-<h3>Perpanjangan PAS</h3>
 
-<p>
+            <!-- ================= CARD 1 ================= -->
 
-Perpanjang masa berlaku PAS tanpa harus melakukan
-pengajuan dari awal.
+            <div class="card">
 
-</p>
+                <h3>
+                    Pengajuan PAS Baru
+                </h3>
 
-<a href="perpanjangan.html">
+                <p>
+                    Mengajukan PAS baru secara online dengan proses
+                    yang lebih cepat dan mudah.
+                </p>
 
-<button>
+                <a href="pengajuan.html">
 
-Perpanjang PAS
+                    <button type="button">
+                        Ajukan Sekarang
+                    </button>
 
-</button>
+                </a>
 
-</a>
+            </div>
 
-</div>
 
-<div class="card">
+            <!-- ================= CARD 2 ================= -->
 
-<h3>Persyaratan Dokumen</h3>
+            <div class="card">
 
-<ul>
+                <h3>
+                    Perpanjangan PAS
+                </h3>
 
-<li>KTP</li>
+                <p>
+                    Perpanjang masa berlaku PAS tanpa harus
+                    melakukan pengajuan dari awal.
+                </p>
 
-<li>Pas Foto</li>
+                <a href="perpanjangan.html">
 
-<li>Surat Permohonan</li>
+                    <button type="button">
+                        Perpanjang PAS
+                    </button>
 
-<li>Surat Pernyataan</li>
+                </a>
 
-<li>Daftar Riwayat Hidup (DRH)</li>
+            </div>
 
-<li>SKCK</li>
 
-</ul>
+            <!-- ================= CARD 3 ================= -->
 
-<a href="persyaratan.html">
+            <div class="card">
 
-<button>
+                <h3>
+                    Persyaratan Dokumen
+                </h3>
 
-Lihat Persyaratan
+                <p>
+                    Pastikan seluruh dokumen persyaratan telah
+                    dipersiapkan sebelum mengajukan PAS.
+                </p>
 
-</button>
+                <ul>
 
-</a>
+                    <li>KTP</li>
 
-</div>
+                    <li>Pas Foto</li>
 
-<div class="card">
+                    <li>Surat Permohonan</li>
 
-<h3>Pengumuman</h3>
+                    <li>Surat Pernyataan</li>
 
-<p>
+                    <li>
+                        Daftar Riwayat Hidup (DRH)
+                    </li>
 
-Seluruh proses pengajuan dan perpanjangan PAS dilakukan
-melalui sistem E-PAS.
+                    <li>SKCK</li>
 
-</p>
+                </ul>
 
-<hr>
+                <a href="persyaratan.html">
 
-<p>
+                    <button type="button">
+                        Lihat Persyaratan
+                    </button>
 
-Pastikan seluruh dokumen telah lengkap sebelum
-mengirimkan pengajuan.
+                </a>
 
-</p>
+            </div>
 
-</div>
 
-</div>
+            <!-- ================= CARD 4 ================= -->
 
-</section>
+            <div class="card">
 
-<!-- ================= FOOTER ================= -->
+                <h3>
+                    Pengumuman
+                </h3>
 
-<footer>
+                <p>
+                    Seluruh proses pengajuan dan perpanjangan PAS
+                    dilakukan melalui sistem E-PAS.
+                </p>
 
-<p>
+                <hr>
 
-© 2026 Electronic Pass System (E-PAS)
+                <p>
+                    Pastikan seluruh dokumen telah lengkap sebelum
+                    mengirimkan pengajuan.
+                </p>
 
-</p>
+            </div>
 
-<p>
+        </div>
 
-Bandar Udara Rahadi Oesman Ketapang
+    </section>
 
-</p>
 
-</footer>
+    <!-- ================= FOOTER ================= -->
 
-<script src="script.js"></script>
+    <footer>
+
+        <p>
+            © 2026 Electronic Pass System (E-PAS)
+        </p>
+
+        <p>
+            Bandar Udara Rahadi Oesman Ketapang
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
 
 </body>
 
